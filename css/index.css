@@ -3,6 +3,7 @@
   position: relative;
   height: 720px;
   background: url(../images/banner_3.avif) no-repeat 0 -100px;
+  background-size: 100% 900px;
   overflow: hidden;
 }
 
@@ -49,7 +50,7 @@
 
 .wing_news_nav .language {
   float: right;
-  width: 10%;
+  width: 18%;
 }
 
 .wing_news_nav li {
@@ -80,6 +81,7 @@ span {
 }
 
 .wing_news_text h5 {
+  height: 36px;
   color: #FFF;
   font-size: 0.4rem;
   font-weight: 400;
@@ -109,13 +111,155 @@ span {
 
 /* 最新动态板块 */
 /* 为大板块和新板块附加定位,新板块需要压住大板块 */
-.wing_news {
+/* 定位测试 */
+/* 测试时需要在最外层加上wing_news这个盒子 */
+/* .wing_news {
   position: relative;
 }
 
 .wing_latestnews {
-  position: absolute;
+  position: relative;
+  z-index: 2;
+  margin-top: -50px;
   bottom: 30px;
   height: 100px;
   background-color: pink;
+} */
+
+/* 选择2D位移实现 */
+.wing_latestnews {
+  transform: translateY(-120px);
+}
+
+.wing_latestnews_container {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+}
+
+/* 文字部分初始化 */
+.wing_latestnews h4 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #FFF;
+  margin-bottom: 5px;
+}
+
+.wing_latestnews h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.wing_latestnews p {
+  font-size: 16px;
+}
+
+.wing_latestnews h3,
+p {
+  display: block;
+  margin: 0 20px 20px;
+}
+
+/* .wing_latestnews a {
+  display: block;
+} */
+/* 交互初始化 */
+.wing_up,
+.wing_img_up {
+  transition: all 0.3s ease;
+}
+
+.wing_up:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.wing_img_up:hover {
+  transform: scale(1.1);
+}
+
+/* 对三角模块处理 */
+.wing_latestnews_container span {
+  display: inline-block;
+  float: none;
+  position: relative;
+  width: 130px;
+  height: 32px;
+  padding-left: 20px;
+  border-width: 1px 0;
+  border-style: solid;
+  /* border-top: 1px solid;
+  border-bottom: 1px solid; */
+  margin: 5px 0;
+  line-height: 30px;
+}
+
+.wing_latestnews_container .blue {
+  border-color: blue;
+  color: blue;
+}
+
+.wing_latestnews_container .white {
+  border-color: #FFF;
+  color: #FFF;
+}
+
+.wing_latestnews_container span::after {
+  content: "";
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  right: -30px;
+  top: 0;
+  width: 30px;
+  height: 35px;
+  transform-origin: top left;
+  transform: rotate(30deg);
+}
+
+.wing_latestnews_container .blue::after {
+  border-left: 1px solid blue;
+  background-color: #fff;
+}
+
+.wing_latestnews_container .white::after {
+  border-left: 1px solid #FFF;
+  background-color: rgb(0, 169, 206);
+}
+
+/* 左右盒子宽度初始化 */
+.wing_latestnews_l {
+  width: 65%;
+}
+
+.wing_latestnews_r {
+  width: 33%;
+}
+
+.wing_latestnews_l_1,
+.wing_latestnews_r_1 {
+  height: 600px;
+}
+
+/* 该处写盒子非通用特征 */
+.wing_latestnews_l_1 {
+  background-color: #FFF;
+}
+
+.wing_latestnews_r_1 {
+  background-color: rgb(0, 169, 206);
+}
+
+/* 图片特征 */
+.wing_latestnews_l_1_img {
+  overflow: hidden;
+  height: 55%;
+}
+
+.wing_latestnews_r_1_img {
+  overflow: hidden;
+  /* 此处选择让图片自己撑开盒子 */
+  /* height: 45%; */
+  border-bottom: 1px solid #FFF;
 }
