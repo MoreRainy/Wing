@@ -129,12 +129,25 @@ span {
 /* 选择2D位移实现 */
 .wing_latestnews {
   transform: translateY(-120px);
+  margin-top: 20px;
 }
 
 .wing_latestnews_container {
   display: flex;
   justify-content: space-between;
   color: black;
+}
+
+.wing_latestnews_l_container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.wing_latestnews_l_4,
+.wing_latestnews_r_2,
+.wing_latestnews_r_3 {
+  margin-top: 20px;
 }
 
 /* 文字部分初始化 */
@@ -228,6 +241,16 @@ p {
   background-color: rgb(0, 169, 206);
 }
 
+/* bg_blue用于修改蓝色背景,覆盖溢出下边缘的背景！ */
+/* bg_blue一定要在blue和white后面不要动，因为层叠性 */
+.wing_latestnews_container .bg_blue::after {
+  background-color: blue;
+}
+
+.wing_latestnews_container .bg_gray::after {
+  background-color: #CCC;
+}
+
 /* 左右盒子宽度初始化 */
 .wing_latestnews_l {
   width: 65%;
@@ -237,13 +260,25 @@ p {
   width: 33%;
 }
 
+.wing_latestnews_l_2,
+.wing_latestnews_l_3 {
+  width: 48%;
+}
+
+/* 此处考虑修改为伪类选择器 */
 .wing_latestnews_l_1,
-.wing_latestnews_r_1 {
+.wing_latestnews_l_2,
+.wing_latestnews_l_3,
+.wing_latestnews_l_4,
+.wing_latestnews_r_1,
+.wing_latestnews_r_2,
+.wing_latestnews_r_3 {
   height: 600px;
 }
 
-/* 该处写盒子非通用特征 */
-.wing_latestnews_l_1 {
+/* 该处写盒子背景颜色 */
+.wing_latestnews_l_1,
+.wing_latestnews_l_3 {
   background-color: #FFF;
 }
 
@@ -251,15 +286,31 @@ p {
   background-color: rgb(0, 169, 206);
 }
 
-/* 图片特征 */
-.wing_latestnews_l_1_img {
-  overflow: hidden;
-  height: 55%;
+.wing_latestnews_l_2,
+.wing_latestnews_r_3 {
+  background-color: blue;
 }
 
-.wing_latestnews_r_1_img {
+.wing_latestnews_r_2 {
+  background-color: #CCC;
+}
+
+/* 图片特征 */
+.wing_latestnews_l_1_img,
+.wing_latestnews_l_4_img {
+  overflow: hidden;
+  height: 60%;
+}
+
+/* 此处考虑修改为伪类选择器 */
+.wing_latestnews_l_2_img,
+.wing_latestnews_l_3_img,
+.wing_latestnews_r_1_img,
+.wing_latestnews_r_2_img,
+.wing_latestnews_r_3_img {
   overflow: hidden;
   /* 此处选择让图片自己撑开盒子 */
   /* height: 45%; */
+  /* height: auto; */
   border-bottom: 1px solid #FFF;
 }
