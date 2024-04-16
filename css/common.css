@@ -47,6 +47,39 @@ html {
   font-size: 50px;
 }
 
+body {
+  background-color: #f5f5f5;
+}
+
+span {
+  font-size: 16px;
+}
+
+/* 交互初始化 */
+.wing_up,
+.wing_img_up,
+.wing_bg_up,
+.wing_text_up {
+  transition: all 0.3s ease;
+}
+
+.wing_up:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.wing_img_up:hover {
+  transform: scale(1.1);
+}
+
+.wing_bg_up:hover {
+  background-size: 120%;
+}
+
+.wing_text_up:hover {
+  opacity: 1;
+}
+
 @media screen and (min-width: 750px) {
   html {
     font-size: 50px;
