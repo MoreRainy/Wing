@@ -59,7 +59,11 @@ span {
 .wing_up,
 .wing_img_up,
 .wing_bg_up,
-.wing_text_up {
+.wing_text_up,
+.wing_box_up img,
+.wing_box_up span,
+.wing_connect_text,
+.wing_connect_up {
   transition: all 0.3s ease;
 }
 
@@ -78,6 +82,33 @@ span {
 
 .wing_text_up:hover {
   opacity: 1;
+}
+
+.wing_connect_text:hover {
+  transform: translateX(20px);
+}
+
+.wing_connect_text:hover h2::before,
+.wing_connect_text:hover p::after {
+  display: block;
+}
+
+.wing_box_up:hover img {
+  transform: scale(1.1);
+}
+
+.wing_box_up:hover span {
+  opacity: 1;
+}
+
+.wing_connect_up:hover h3::after {
+  display: block;
+  transform: translateX(20px);
+}
+
+
+.wing_connect_up:hover p {
+  display: block;
 }
 
 @media screen and (min-width: 750px) {
