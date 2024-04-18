@@ -476,7 +476,9 @@
 
 .wing_connect_container_content h3::after {
   content: "";
-  display: none;
+  display: block;
+  /* display: none; */
+  visibility: hidden;
   position: absolute;
   right: 30px;
   top: 0;

@@ -62,8 +62,8 @@ span {
 .wing_text_up,
 .wing_box_up img,
 .wing_box_up span,
-.wing_connect_text,
-.wing_connect_up {
+/* .wing_connect_text, */
+.wing_connect_up:hover h3::after {
   transition: all 0.3s ease;
 }
 
@@ -102,10 +102,10 @@ span {
 }
 
 .wing_connect_up:hover h3::after {
-  display: block;
+  /* display: block; */
+  visibility: visible;
   transform: translateX(20px);
 }
-
 
 .wing_connect_up:hover p {
   display: block;
