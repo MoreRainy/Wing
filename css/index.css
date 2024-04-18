@@ -106,6 +106,7 @@
   float: right;
   width: 10px;
   height: 10px;
+  margin-right: 5px;
   background-color: #fff;
 }
 
@@ -556,6 +557,19 @@
   padding: 100px 0;
 }
 
+/* 阴影 */
+.wing_connectPlus_bg .wing_connectPlus_container .wing_connectPlus_img_shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  /* height: 30%;
+  background: url(../images/cover.png) no-repeat 0 10px;
+  opacity: 0.4; */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
+}
+
 .wing_connectPlus_container {
   display: flex;
   justify-content: space-between;
@@ -564,9 +578,22 @@
 
 /* 左侧 */
 
-.wing_connectPlus_container div[class^="wing_connectPlus_img"] {
+.wing_connectPlus_container .wing_connectPlus_img {
+  position: relative;
   width: 50%;
   height: 600px;
+}
+
+.wing_connectPlus_img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  background: url(../images/cut.png) no-repeat;
+  background-size: 100% 100%;
+  z-index: 1;
 }
 
 .wing_connectPlus_container a[class^="wing_connectPlus_img"] {
@@ -606,13 +633,219 @@
 }
 
 .wing_connectPlus_text p {
+  position: relative;
   font-size: 18px;
   font-style: italic;
+  font-weight: 400;
   color: black;
+}
+
+.wing_connectPlus_text p::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -60px;
+  width: 60px;
+  height: 60px;
+  background: url(../images/icon_arrow_r_dark.png) no-repeat 0 30px;
+  background-size: contain;
 }
 
 /* 背景图片 */
 .wing_connectPlus_img_1 {
   background: url(../images/connect_1.jpg) no-repeat;
   background-size: cover;
+}
+
+/* 加入jion */
+.wing_join_bg {
+  height: 1100px;
+  background: url(../images/join_bg1.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+
+.wing_join_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 120px 100px 50px;
+}
+
+/* 文字部分 */
+.wing_join_bg h2 {
+  font-size: 48px;
+  font-style: italic;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.wing_join_bg h5 {
+  position: relative;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.wing_join_bg h5::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -80px;
+  width: 50px;
+  height: 50px;
+  background: url(../images/icon_arrow_r_dark.png) no-repeat;
+  background-size: contain;
+}
+
+/* 轮播图按钮 */
+.wing_join_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+}
+
+.wing_join_button .wing_join_button_l {
+  transform: rotate(180deg);
+  margin-left: 20px;
+}
+
+.wing_join_button .wing_join_button_chose span {
+  float: right;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  background-color: #fff;
+}
+
+/* 底部footer */
+.wing_footer_bg {
+  background-color: #fff;
+  height: 500px;
+}
+
+.wing_footer_bg dl,
+.wing_footer_bg a {
+  list-style: none;
+  color: #5f6464;
+  font-weight: normal;
+}
+
+.wing_footer_bg dt {
+  font-size: 20px;
+}
+
+.wing_footer_bg dd {
+  font-size: 16px;
+}
+
+.wing_footer_focus {
+  padding: 40px 0;
+  height: 120px;
+  border-bottom: 1px solid #f2f3f5;
+}
+
+.wing_footer_focus a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wing_footer_focus dt,
+.wing_footer_focus dd {
+  float: left;
+  margin-right: 50px;
+  width: 40px;
+  height: 40px;
+}
+
+.wing_footer_focus dt {
+  width: 100px;
+}
+
+.wing_footer_second {
+  display: flex;
+}
+
+.wing_footer_join,
+.wing_footer_connect,
+.wing_footer_law {
+  width: 20%;
+}
+
+/* .wing_footer_second div[att^="wing_footer_"] */
+.wing_footer_join dt,
+.wing_footer_connect dt,
+.wing_footer_law dt {
+  height: 22px;
+  margin: 20px 0 30px;
+}
+
+.wing_footer_join dd,
+.wing_footer_connect dd,
+.wing_footer_law dd {
+  height: 18px;
+  margin: 0 0 20px;
+}
+
+.wing_footer_logo {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* .wing_footer_logo img {
+  max-width: 100%;
+  max-height: 100%;
+} */
+
+/* 背景 */
+.wing_footer_focus_1 {
+  background: url(../images/icon_wechat.png);
+  background-size: contain;
+}
+
+.wing_footer_focus_2 {
+  background: url(../images/icon_weibo.png);
+  background-size: contain;
+}
+
+.wing_footer_focus_3 {
+  background: url(../images/icon_x.png);
+  background-size: contain;
+}
+
+.wing_footer_focus_4 {
+  background: url(../images/icon_in.png);
+  background-size: contain;
+}
+
+.wing_footer_focus_5 {
+  background: url(../images/icon_youtube.png);
+  background-size: contain;
+}
+
+/* end  */
+.wing_footer_end {
+  display: flex;
+  flex-direction: column;
+}
+
+.wing_footer_end li {
+  float: left;
+  margin-right: 15px;
+  list-style: none;
+  color: #5f6464;
+  font-size: 14px;
+}
+
+.wing_footer_end p {
+  color: #5f6464;
+  margin-top: 5px;
+  font-size: 14px;
 }
