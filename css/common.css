@@ -61,7 +61,7 @@ span {
 .wing_bg_up,
 .wing_text_up,
 .wing_box_up img,
-.wing_box_up span,
+/* .wing_box_up span, */
 /* .wing_connect_text, */
 .wing_connect_up:hover h3::after {
   transition: all 0.3s ease;
@@ -84,6 +84,10 @@ span {
   opacity: 1;
 }
 
+.wing_text_blue:hover {
+  color: blue !important;
+}
+
 .wing_connect_text:hover {
   transform: translateX(20px);
 }
@@ -97,9 +101,10 @@ span {
   transform: scale(1.1);
 }
 
+/* 
 .wing_box_up:hover span {
   opacity: 1;
-}
+} */
 
 .wing_connect_up:hover h3::after {
   /* display: block; */
@@ -120,10 +125,11 @@ span {
 .center {
   width: 100%;
   margin: auto;
+  padding: 0 20px;
 }
 
 @media screen and (min-width: 1200px) {
   .center {
-    width: 1200px;
+    width: 1220px;
   }
 }

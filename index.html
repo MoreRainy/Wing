@@ -11,28 +11,34 @@
 </head>
 
 <body>
+    <!-- 导航栏  单独-->
+    <div class="wing_news_nav_bg">
+        <div class="wing_news_nav center">
+            <img src="images/tx_logo.png" alt="腾讯Tencent">
+            <div class="language">
+                <a href="#">简</a><span>/</span>
+                <a href="#">繁</a><span>/</span>
+                <a href="#">EN</a>
+            </div>
+            <ul>
+                <li>简介</li>
+                <li>业务</li>
+                <li>员工</li>
+                <li>ESG</li>
+                <li>投资者</li>
+                <li>媒体</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 回顶按钮 -->
+    <div class="wing_top">
+        <a href="#top"><span></span></a>
+    </div>
     <!-- 头部板块 -->
-    <div class="wing_news_bg">
+    <div class="wing_news_bg" id="top">
         <!-- 背景蒙版 -->
         <div class="wing_news_bg_shadow"></div>
         <div class="wing_news_container center">
-            <!-- 导航栏  单独-->
-            <div class="wing_news_nav center">
-                <img src="images/tx_logo.png" alt="腾讯Tencent">
-                <div class="language">
-                    <a href="#">简</a><span>/</span>
-                    <a href="#">繁</a><span>/</span>
-                    <a href="#">EN</a>
-                </div>
-                <ul>
-                    <li>简介</li>
-                    <li>业务</li>
-                    <li>员工</li>
-                    <li>ESG</li>
-                    <li>投资者</li>
-                    <li>媒体</li>
-                </ul>
-            </div>
             <!-- 文字部分 -->
             <div class="wing_news_text">
                 <a href="#">
@@ -62,7 +68,7 @@
         <div class="wing_latestnews_bg_shadow"></div>
         <div class="wing_latestnews center">
             <h4>最新动态</h4>
-            <div class="wing_latestnews_container center">
+            <div class="wing_latestnews_container">
                 <div class="wing_latestnews_l">
                     <div class="wing_latestnews_l_1 wing_up">
                         <div class="wing_latestnews_l_1_img"><a href="#"><img src="images/latest_l_1.avif"
@@ -70,7 +76,7 @@
                         </div>
                         <span class="blue">2024.03.18</span>
                         <a href="#" style="color: black !important;">
-                            <h3>#腾讯科技录：照护长者，保护鸟类，减少碳排，增强视频会议效果</h3>
+                            <h3 class="wing_text_blue">#腾讯科技录：照护长者，保护鸟类，减少碳排，增强视频会议效果</h3>
                             <p>在“腾讯科技录”第三期中,我们重点关注7个创新项目,涉及照护老人、保护野生动物和环境等领域。</p>
                         </a>
                     </div>
@@ -91,7 +97,7 @@
                             </div>
                             <span class="blue">2024.02.06</span>
                             <a href="#" style="color: black !important;">
-                                <h3>机器人如何照护失能老人</h3>
+                                <h3 class="wing_text_blue">机器人如何照护失能老人</h3>
                                 <p>腾讯银发科技实验室希望能够利用科技提高老年人养护水平。</p>
                             </a>
                         </div>
@@ -102,7 +108,7 @@
                         </div>
                         <span class="blue">2024.03.08</span>
                         <a href="#" style="color: black !important;">
-                            <h3>腾讯女性人员谈职业与生活</h3>
+                            <h3 class="wing_text_blue">腾讯女性人员谈职业与生活</h3>
                             <p>时值2024年国际妇女节,我们采访了来自美国、荷兰、韩国和新加坡的四位员工,她们畅所欲言在腾讯的生活。</p>
                         </a>
                     </div>
@@ -124,7 +130,7 @@
                         </div>
                         <span class="blue bg_gray">2024.01.25</span>
                         <a href="#" style="color: black !important;">
-                            <h3>微信刷掌支付: 轻松挥手完成支付</h3>
+                            <h3 class="wing_text_blue">微信刷掌支付: 轻松挥手完成支付</h3>
                             <p>微信推出了开创性的刷掌支付系统，大大提高了日常生活的便利性和安全性。</p>
                         </a>
                     </div>
@@ -244,15 +250,17 @@
     <div class="wing_connectPlus_bg">
         <div class="wing_connectPlus_container center">
             <div class="wing_connectPlus_img">
-                <div class="wing_connectPlus_img_shadow"></div>
+                <!-- <div class="wing_connectPlus_img_shadow"></div> -->
                 <a href="#" class="wing_connectPlus_img_1">
-                    <h4>99公益日</h4>
-                    <p>每年一度于9月举行的全民公益活动，透过网上平台将大众在活动期间网上作出的捐款进行匹配。</p>
+                    <div class="wing_connectPlus_img_shadow">
+                        <h4>99公益日</h4>
+                        <p>每年一度于9月举行的全民公益活动，透过网上平台将大众在活动期间网上作出的捐款进行匹配。</p>
+                    </div>
                 </a>
             </div>
             <div class="wing_connectPlus_text">
                 <a href="#">
-                    <h3>连接<br>责任与信任</h3>
+                    <h3 class="wing_text_blue">连接<br>责任与信任</h3>
                     <p>聚合微小善行，以科技让世界更美好</p>
                 </a>
             </div>
@@ -260,11 +268,12 @@
     </div>
     <!-- 加入Join -->
     <div class="wing_join_bg">
+        <img src="../images/join_bg1.jpg" alt=" 连接 人才与发展" width="100%">
         <div class="wing_join_container">
             <!-- 文字部分 -->
             <div class="wing_join_text">
                 <a href="#">
-                    <h2>连接<br>人才与发展</h2>
+                    <h2 class="wing_text_blue">连接<br>人才与发展</h2>
                 </a>
                 <a href="#">
                     <h5>激发活力，助力成长</h5>

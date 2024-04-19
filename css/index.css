@@ -1,34 +1,14 @@
-/* banner背景 */
-.wing_news_bg {
-  position: relative;
-  height: 720px;
-  background: url(../images/banner_3.avif) no-repeat 0 -100px;
-  background-size: 100% 900px;
-  overflow: hidden;
-}
-
-/* 背景蒙版 */
-.wing_news_bg_shadow {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 720px;
-  background: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-}
-
-.wing_news_container {
-  position: relative;
-  height: 900px;
-  padding-top: 250px;
-}
-
 /* nav导航栏，覆盖于container上，定位顶端 */
-.wing_news_nav {
-  position: absolute;
+.wing_news_nav_bg {
+  position: fixed;
+  /* 父元素没有width，子元素的margin:0 auto;失效 */
+  width: 100%;
+  background-color: transparent;
   top: 0;
-  left: 0;
+  z-index: 1;
+}
+
+.wing_news_nav {
   height: 72px;
   background-color: transparent;
 }
@@ -70,6 +50,64 @@
   height: 72px;
   color: #FFF;
   line-height: 72px;
+}
+
+/* 回顶按钮 */
+.wing_top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #0052D9;
+  border-radius: 50%;
+}
+
+.wing_top a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wing_top span {
+  position: absolute;
+  top: calc(50% - 0.02rem);
+  left: calc(50% - 0.11rem);
+  width: 0.3rem;
+  height: 0.3rem;
+  /* transform: translateX(-0.15rem); */
+  transform: rotate(45deg);
+  background-color: transparent;
+  border-left: 1px solid #0052D9;
+  border-top: 1px solid #0052D9;
+}
+
+/* banner背景 */
+.wing_news_bg {
+  position: relative;
+  height: 720px;
+  background: url(../images/banner_3.avif) no-repeat 0 -100px;
+  background-size: 100% 900px;
+  overflow: hidden;
+}
+
+/* 背景蒙版 */
+.wing_news_bg_shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 720px;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.wing_news_container {
+  position: relative;
+  height: 900px;
+  padding-top: 250px;
 }
 
 /* 文字部分 */
@@ -369,7 +407,7 @@
 
 .wing_connect_container {
   display: flex;
-  height: 60vh;
+  height: 630px;
 }
 
 .wing_connect_container_nav {
@@ -559,18 +597,6 @@
   padding: 100px 0;
 }
 
-/* 阴影 */
-.wing_connectPlus_bg .wing_connectPlus_container .wing_connectPlus_img_shadow {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 600px;
-  /* height: 30%;
-  background: url(../images/cover.png) no-repeat 0 10px;
-  opacity: 0.4; */
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
-}
 
 .wing_connectPlus_container {
   display: flex;
@@ -602,8 +628,17 @@
   display: flex;
   flex-direction: column;
   justify-content: end;
-  padding: 50px;
   height: 100%;
+}
+
+.wing_connectPlus_img_shadow {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 50px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
 }
 
 .wing_connectPlus_img h4 {
@@ -662,18 +697,19 @@
 
 /* 加入jion */
 .wing_join_bg {
-  height: 1100px;
-  background: url(../images/join_bg1.jpg) no-repeat;
-  background-size: 100% 100%;
+  position: relative;
 }
 
 .wing_join_container {
   display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  padding: 120px 100px 50px;
+  padding: 5% 3% 50px;
 }
 
 /* 文字部分 */
