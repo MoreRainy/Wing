@@ -486,18 +486,18 @@
 /* 连接 内容部分 */
 
 /* 正文 */
-.wing_connect_container_content div[class^="wing_connect_container_content_js"] {
-  display: none;
-  width: 100%;
-  height: 100%;
-}
-
 .wing_connect_container_content div[class^="wing_connect_container_content_"] {
   display: grid;
   width: 100%;
   height: 100%;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
+}
+
+.wing_connect_container_content div[class^="wing_connect_container_content_js"] {
+  display: none;
+  width: 100%;
+  height: 100%;
 }
 
 /* 网页默认第一个显示，权重拉高 */

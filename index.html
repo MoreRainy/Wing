@@ -95,10 +95,10 @@
             bg_white.parentElement.style.backgroundColor = '#FFF';
             bg_white.parentElement.style.height = '550px';
             bg_white.firstElementChild.src = '../images/tencent_logo.png';
-            for (var i = 0; i < nav.length; i++) {
+            for (let i = 0; i < nav.length; i++) {
                 nav[i].style.color = 'black';
             }
-            for (var i = 0; i < language.length; i++) {
+            for (let i = 0; i < language.length; i++) {
                 language[i].style.color = 'black';
             }
         })
@@ -107,24 +107,24 @@
             bg_white.parentElement.style.backgroundColor = 'transparent';
             bg_white.parentElement.style.height = 'none';
             bg_white.firstElementChild.src = '../images/tx_logo.png';
-            for (var i = 0; i < nav.length; i++) {
+            for (let i = 0; i < nav.length; i++) {
                 nav[i].style.color = '#FFF';
             }
-            for (var i = 0; i < language.length; i++) {
+            for (let i = 0; i < language.length; i++) {
                 language[i].style.color = '#FFF';
             }
         })
         // 二级菜单
         // 兄弟节点 node.nextSibling
-        for (var i = 0; i < nav.length; i++) {
+        for (let i = 0; i < nav.length; i++) {
             nav[i].addEventListener('mouseover', function () {
-                for (var j = 0; j < nav.length; j++) {
+                for (let j = 0; j < nav.length; j++) {
                     nav[j].nextElementSibling.style.display = 'none';
                 }
                 this.nextElementSibling.style.display = 'block';
             })
             nav[i].addEventListener('mouseout', function () {
-                for (var j = 0; j < nav.length; j++) {
+                for (let j = 0; j < nav.length; j++) {
                     nav[j].nextElementSibling.style.display = 'none';
                 }
             })
