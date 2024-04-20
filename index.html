@@ -8,6 +8,7 @@
     <title>腾讯Tencent</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
+    <!-- <script src="js/index.js"></script> -->
 </head>
 
 <body>
@@ -20,16 +21,115 @@
                 <a href="#">繁</a><span>/</span>
                 <a href="#">EN</a>
             </div>
-            <ul>
-                <li>简介</li>
-                <li>业务</li>
-                <li>员工</li>
-                <li>ESG</li>
-                <li>投资者</li>
-                <li>媒体</li>
+            <ul class="wing_news_nav_m">
+                <li>
+                    <a class="wing_news_nav_head">简介</a>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">愿景及使命</a></li>
+                        <li><a href="#">发展历程</a></li>
+                        <li><a href="#">业务架构</a></li>
+                        <li><a href="#">管理团队</a></li>
+                        <li><a href="#">董事会成员</a></li>
+                        <li><a href="#">企业文化</a></li>
+                        <li><a href="#">办公地点</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="wing_news_nav_head">业务</a>
+                    <ul>
+                        <li><a href="#">面向用户</a></li>
+                        <li><a href="#">面向企业</a></li>
+                        <li><a href="#">创新科技</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="wing_news_nav_head">员工</a>
+                    <ul>
+                        <li><a href="#">人才发展</a></li>
+                        <li><a href="#">腾讯学堂</a></li>
+                        <li><a href="#">工作环境</a></li>
+                        <li><a href="#">员工活动</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="wing_news_nav_head">ESG</a>
+                    <ul>
+                        <li><a href="#">环境</a></li>
+                        <li><a href="#">社会</a></li>
+                        <li><a href="#">治理</a></li>
+                        <li><a href="#">ESG评级</a></li>
+                        <li><a href="#">报告</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="wing_news_nav_head">投资者</a>
+                    <ul>
+                        <li><a href="#">季度业绩及投资者新闻</a></li>
+                        <li><a href="#">公告及财务报告</a></li>
+                        <li><a href="#">业绩电话会及投资者日历</a></li>
+                        <li><a href="#">投资者工具包</a></li>
+                        <li><a href="#">证券及债券信息</a></li>
+                        <li><a href="#">环境、社会及管治</a></li>
+                        <li><a href="#">股东资讯</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="wing_news_nav_head">媒体</a>
+                    <ul>
+                        <li><a href="#">企业动态</a></li>
+                        <li><a href="#">财务新闻</a></li>
+                        <li><a href="#">腾讯视角</a></li>
+                        <li><a href="#">媒体资料库</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
+    <script>
+        var bg_white = document.querySelector('.wing_news_nav');
+        var language = document.querySelectorAll('.language a,.language span');
+        var nav = document.querySelectorAll('.wing_news_nav_head');
+        //白背景
+        bg_white.addEventListener('mouseover', function () {
+            bg_white.parentElement.style.backgroundColor = '#FFF';
+            bg_white.parentElement.style.height = '550px';
+            bg_white.firstElementChild.src = '../images/tencent_logo.png';
+            for (var i = 0; i < nav.length; i++) {
+                nav[i].style.color = 'black';
+            }
+            for (var i = 0; i < language.length; i++) {
+                language[i].style.color = 'black';
+            }
+        })
+        //黑背景
+        bg_white.addEventListener('mouseout', function () {
+            bg_white.parentElement.style.backgroundColor = 'transparent';
+            bg_white.parentElement.style.height = 'none';
+            bg_white.firstElementChild.src = '../images/tx_logo.png';
+            for (var i = 0; i < nav.length; i++) {
+                nav[i].style.color = '#FFF';
+            }
+            for (var i = 0; i < language.length; i++) {
+                language[i].style.color = '#FFF';
+            }
+        })
+        // 二级菜单
+        // 兄弟节点 node.nextSibling
+        for (var i = 0; i < nav.length; i++) {
+            nav[i].addEventListener('mouseover', function () {
+                for (var j = 0; j < nav.length; j++) {
+                    nav[j].nextElementSibling.style.display = 'none';
+                }
+                this.nextElementSibling.style.display = 'block';
+            })
+            nav[i].addEventListener('mouseout', function () {
+                for (var j = 0; j < nav.length; j++) {
+                    nav[j].nextElementSibling.style.display = 'none';
+                }
+            })
+        }
+    </script>
     <!-- 回顶按钮 -->
     <div class="wing_top">
         <a href="#top"><span></span></a>
@@ -175,77 +275,95 @@
     <div class="wing_connect_bg">
         <div class="wing_connect_container center">
             <div class="wing_connect_container_nav">
-                <a href="#" class="wing_text_up wing_connect_text">
+                <a href="javascript:;" class="wing_text_up connect_1">
                     <h2>连接用户与生活</h2>
                     <p>让生活更便捷更多彩</p>
                 </a>
-                <a href="#" class="wing_text_up wing_connect_text">
+                <a href="javascript:;" class="wing_text_up connect_2">
                     <h2>连接企业与科技</h2>
                     <p>数字化助手，助力产业升级</p>
                 </a>
-                <a href="#" class="wing_text_up wing_connect_text">
+                <a href="javascript:;" class="wing_text_up connect_3">
                     <h2>连接现在和未来</h2>
                     <p>探索面向未来的创新科技</p>
                 </a>
             </div>
             <div class="wing_connect_container_content">
-                <div class="wing_connect_container_content_1">
-                    <a href="#" class="wing_connect_up wing_connect_container_content_1_1 ">
-                        <h3>通信与社交</h3>
-                        <p>连接人与人，提供功能丰富的即时通信和社交平台，让沟通更便捷。</p>
-                    </a>
-                    <a href="#" class="wing_connect_up wing_connect_container_content_1_2">
-                        <h3>数字内容</h3>
-                        <p>基于优质内容，以技术为驱动引擎，探索社交和内容融合的下一代形态。</p>
-                    </a>
-                    <a href="#" class="wing_connect_up wing_connect_container_content_1_3">
-                        <h3>金融科技服务</h3>
-                        <p>连接用户、商户和金融机构，提供安全、专业、便捷的金融产品与服务。</p>
-                    </a>
-                    <a href="#" class="wing_connect_up wing_connect_container_content_1_4">
-                        <h3>工具</h3>
-                        <p>提供多种工具性软件，帮助用户快速直接解决各项具体需求。</p>
-                    </a>
+                <div class="wing_connect_container_content_js_1">
+                    <div class="wing_connect_container_content_1">
+                        <a href="#" class="wing_connect_up wing_connect_container_content_1_1 ">
+                            <h3>通信与社交</h3>
+                            <p>连接人与人，提供功能丰富的即时通信和社交平台，让沟通更便捷。</p>
+                        </a>
+                        <a href="#" class="wing_connect_up wing_connect_container_content_1_2">
+                            <h3>数字内容</h3>
+                            <p>基于优质内容，以技术为驱动引擎，探索社交和内容融合的下一代形态。</p>
+                        </a>
+                        <a href="#" class="wing_connect_up wing_connect_container_content_1_3">
+                            <h3>金融科技服务</h3>
+                            <p>连接用户、商户和金融机构，提供安全、专业、便捷的金融产品与服务。</p>
+                        </a>
+                        <a href="#" class="wing_connect_up wing_connect_container_content_1_4">
+                            <h3>工具</h3>
+                            <p>提供多种工具性软件，帮助用户快速直接解决各项具体需求。</p>
+                        </a>
+                    </div>
                 </div>
-                <div class="wing_connect_container_content_2">
-                    <a href="#" class="wing_connect_up wing_connect_container_content_2_1">
-                        <h3>腾讯广告营销</h3>
-                        <p>大数据营销平台，汇聚腾讯全量应用场景，提供一体化数字化营销方案。</p>
-                    </a>
-                    <a href="#" class="wing_connect_up wing_connect_container_content_2_2">
-                        <h3>腾讯云</h3>
-                        <p>提供领先的云产品与云服务，辅助企业走向数字化和全球化。</p>
-                    </a>
-                    <a href="#"
-                        class="wing_connect_up wing_connect_container_content_2_3 wing_connect_container_content_longer">
-                        <h3>智慧产业</h3>
-                        <p>通过云、AI、大数据分析、安全、支付、小程序、LBS等互联网前沿技术和产品，
-                            <br>
-                            打造智慧产业方案，助力产业数字化升级。
-                        </p>
-                    </a>
+                <div class="wing_connect_container_content_js_2">
+                    <div class="wing_connect_container_content_2">
+                        <a href="#" class="wing_connect_up wing_connect_container_content_2_1">
+                            <h3>腾讯广告营销</h3>
+                            <p>大数据营销平台，汇聚腾讯全量应用场景，提供一体化数字化营销方案。</p>
+                        </a>
+                        <a href="#" class="wing_connect_up wing_connect_container_content_2_2">
+                            <h3>腾讯云</h3>
+                            <p>提供领先的云产品与云服务，辅助企业走向数字化和全球化。</p>
+                        </a>
+                        <a href="#"
+                            class="wing_connect_up wing_connect_container_content_2_3 wing_connect_container_content_longer">
+                            <h3>智慧产业</h3>
+                            <p>通过云、AI、大数据分析、安全、支付、小程序、LBS等互联网前沿技术和产品，
+                                <br>
+                                打造智慧产业方案，助力产业数字化升级。
+                            </p>
+                        </a>
+                    </div>
                 </div>
-                <div class="wing_connect_container_content_3">
-                    <a href="#" class="wing_connect_up wing_connect_container_content_3_1 ">
-                        <h3>人工智能</h3>
-                        <p>运用多种技术资产，提升人工智能实力，惠及人类和世界。</p>
-                    </a>
-                    <a href="#" class="wing_connect_up wing_connect_container_content_3_2">
-                        <h3>物联网</h3>
-                        <p>通过腾讯云物联网，致力提供IoT全栈产品和解决方案。</p>
-                    </a>
-                    <a href="#" class="wing_connect_up wing_connect_container_content_3_3">
-                        <h3>多媒体</h3>
-                        <p>腾讯多媒体实验室专注音视频通信技术的前瞻性研究。</p>
-                    </a>
-                    <a href="#" class="wing_connect_up wing_connect_container_content_3_4">
-                        <h3>腾讯探索</h3>
-                        <p>携手合作伙伴探索未来和相关技术，帮助解决全球在食物、能源和水源方面的挑战。</p>
-                    </a>
+                <div class="wing_connect_container_content_js_3">
+                    <div class="wing_connect_container_content_3">
+                        <a href="#" class="wing_connect_up wing_connect_container_content_3_1 ">
+                            <h3>人工智能</h3>
+                            <p>运用多种技术资产，提升人工智能实力，惠及人类和世界。</p>
+                        </a>
+                        <a href="#" class="wing_connect_up wing_connect_container_content_3_2">
+                            <h3>物联网</h3>
+                            <p>通过腾讯云物联网，致力提供IoT全栈产品和解决方案。</p>
+                        </a>
+                        <a href="#" class="wing_connect_up wing_connect_container_content_3_3">
+                            <h3>多媒体</h3>
+                            <p>腾讯多媒体实验室专注音视频通信技术的前瞻性研究。</p>
+                        </a>
+                        <a href="#" class="wing_connect_up wing_connect_container_content_3_4">
+                            <h3>腾讯探索</h3>
+                            <p>携手合作伙伴探索未来和相关技术，帮助解决全球在食物、能源和水源方面的挑战。</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        var connect_nav = document.querySelectorAll('.wing_text_up');
+        var connect_content = document.querySelectorAll('div[class^="wing_connect_container_content_js"]');
+        for (let i = 0; i < connect_nav.length; i++) {
+            connect_nav[i].addEventListener('mouseover', function () {
+                for (var j = 0; j < connect_content.length; j++) {
+                    connect_content[j].style.display = 'none';
+                }
+                connect_content[i].style.display = 'block';
+            })
+        }
+    </script>
     <!-- 连接plus -->
     <div class="wing_connectPlus_bg">
         <div class="wing_connectPlus_container center">

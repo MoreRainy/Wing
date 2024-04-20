@@ -36,7 +36,6 @@ ul {
 
 a {
   text-decoration: none;
-  color: black;
 }
 
 li {
@@ -56,13 +55,12 @@ span {
 }
 
 /* 交互初始化 */
+.wing_news_nav,
 .wing_up,
 .wing_img_up,
 .wing_bg_up,
 .wing_text_up,
 .wing_box_up img,
-/* .wing_box_up span, */
-/* .wing_connect_text, */
 .wing_connect_up:hover h3::after {
   transition: all 0.3s ease;
 }
@@ -82,18 +80,16 @@ span {
 
 .wing_text_up:hover {
   opacity: 1;
+  transform: translateX(20px);
 }
 
 .wing_text_blue:hover {
   color: blue !important;
 }
 
-.wing_connect_text:hover {
-  transform: translateX(20px);
-}
 
-.wing_connect_text:hover h2::before,
-.wing_connect_text:hover p::after {
+.wing_text_up:hover h2::before,
+.wing_text_up:hover p::after {
   display: block;
 }
 
