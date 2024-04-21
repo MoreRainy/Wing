@@ -118,6 +118,7 @@ span {
   }
 }
 
+/* 一定要加padding，不然页面缩小元素就顶着视窗两边，不好看，需要一定的缩进 */
 .center {
   width: 100%;
   margin: auto;
@@ -127,5 +128,6 @@ span {
 @media screen and (min-width: 1200px) {
   .center {
     width: 1220px;
+    padding: 0;
   }
 }

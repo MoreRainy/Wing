@@ -23,8 +23,8 @@
             </div>
             <ul class="wing_news_nav_m">
                 <li>
-                    <a class="wing_news_nav_head">简介</a>
-                    <ul>
+                    <a href="#" class="wing_news_nav_head">简介</a>
+                    <ul class="wing_news_nav_content">
                         <li><a href="#">公司简介</a></li>
                         <li><a href="#">愿景及使命</a></li>
                         <li><a href="#">发展历程</a></li>
@@ -36,16 +36,16 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="wing_news_nav_head">业务</a>
-                    <ul>
+                    <a href="#" class="wing_news_nav_head">业务</a>
+                    <ul class="wing_news_nav_content">
                         <li><a href="#">面向用户</a></li>
                         <li><a href="#">面向企业</a></li>
                         <li><a href="#">创新科技</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a class="wing_news_nav_head">员工</a>
-                    <ul>
+                    <a href="#" class="wing_news_nav_head">员工</a>
+                    <ul class="wing_news_nav_content">
                         <li><a href="#">人才发展</a></li>
                         <li><a href="#">腾讯学堂</a></li>
                         <li><a href="#">工作环境</a></li>
@@ -53,8 +53,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="wing_news_nav_head">ESG</a>
-                    <ul>
+                    <a href="#" class="wing_news_nav_head">ESG</a>
+                    <ul class="wing_news_nav_content">
                         <li><a href="#">环境</a></li>
                         <li><a href="#">社会</a></li>
                         <li><a href="#">治理</a></li>
@@ -63,8 +63,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="wing_news_nav_head">投资者</a>
-                    <ul>
+                    <a href="#" class="wing_news_nav_head">投资者</a>
+                    <ul class="wing_news_nav_content">
                         <li><a href="#">季度业绩及投资者新闻</a></li>
                         <li><a href="#">公告及财务报告</a></li>
                         <li><a href="#">业绩电话会及投资者日历</a></li>
@@ -75,8 +75,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="wing_news_nav_head">媒体</a>
-                    <ul>
+                    <a href="#" class="wing_news_nav_head">媒体</a>
+                    <ul class="wing_news_nav_content">
                         <li><a href="#">企业动态</a></li>
                         <li><a href="#">财务新闻</a></li>
                         <li><a href="#">腾讯视角</a></li>
@@ -87,45 +87,23 @@
         </div>
     </div>
     <script>
-        var bg_white = document.querySelector('.wing_news_nav');
-        var language = document.querySelectorAll('.language a,.language span');
-        var nav = document.querySelectorAll('.wing_news_nav_head');
-        //白背景
-        bg_white.addEventListener('mouseover', function () {
-            bg_white.parentElement.style.backgroundColor = '#FFF';
-            bg_white.parentElement.style.height = '550px';
-            bg_white.firstElementChild.src = '../images/tencent_logo.png';
-            for (let i = 0; i < nav.length; i++) {
-                nav[i].style.color = 'black';
-            }
-            for (let i = 0; i < language.length; i++) {
-                language[i].style.color = 'black';
-            }
-        })
-        //黑背景
-        bg_white.addEventListener('mouseout', function () {
-            bg_white.parentElement.style.backgroundColor = 'transparent';
-            bg_white.parentElement.style.height = 'none';
-            bg_white.firstElementChild.src = '../images/tx_logo.png';
-            for (let i = 0; i < nav.length; i++) {
-                nav[i].style.color = '#FFF';
-            }
-            for (let i = 0; i < language.length; i++) {
-                language[i].style.color = '#FFF';
-            }
-        })
-        // 二级菜单
-        // 兄弟节点 node.nextSibling
-        for (let i = 0; i < nav.length; i++) {
-            nav[i].addEventListener('mouseover', function () {
-                for (let j = 0; j < nav.length; j++) {
-                    nav[j].nextElementSibling.style.display = 'none';
+        let head_logo = document.querySelector('.wing_news_nav>img');
+        let head_text = document.querySelectorAll('.language a,.language span,.wing_news_nav_head');
+        let head_nav = document.querySelectorAll('.wing_news_nav_m>li');
+        let head_bg = document.querySelector('.wing_news_nav_bg');
+        for (let i = 0; i < head_nav.length; i++) {
+            head_nav[i].addEventListener('mouseover', function () {
+                head_bg.className = 'wing_news_nav_bg wing_news_nav_bg_js';
+                head_logo.src = 'images/tencent_logo.png';
+                for (let j = 0; j < head_text.length; j++) {
+                    head_text[j].style.color = 'black';
                 }
-                this.nextElementSibling.style.display = 'block';
             })
-            nav[i].addEventListener('mouseout', function () {
-                for (let j = 0; j < nav.length; j++) {
-                    nav[j].nextElementSibling.style.display = 'none';
+            head_nav[i].addEventListener('mouseout', function () {
+                head_logo.src = 'images/tx_logo.png';
+                head_bg.className = 'wing_news_nav_bg';
+                for (let j = 0; j < head_text.length; j++) {
+                    head_text[j].style.color = '#FFF';
                 }
             })
         }
@@ -135,7 +113,7 @@
         <a href="#top"><span></span></a>
     </div>
     <!-- 头部板块 -->
-    <div class="wing_news_bg" id="top">
+    <div class="wing_news_bg">
         <!-- 背景蒙版 -->
         <div class="wing_news_bg_shadow"></div>
         <div class="wing_news_container center">
@@ -353,8 +331,8 @@
         </div>
     </div>
     <script>
-        var connect_nav = document.querySelectorAll('.wing_text_up');
-        var connect_content = document.querySelectorAll('div[class^="wing_connect_container_content_js"]');
+        let connect_nav = document.querySelectorAll('.wing_text_up');
+        let connect_content = document.querySelectorAll('div[class^="wing_connect_container_content_js"]');
         for (let i = 0; i < connect_nav.length; i++) {
             connect_nav[i].addEventListener('mouseover', function () {
                 for (var j = 0; j < connect_content.length; j++) {

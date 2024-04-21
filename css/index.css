@@ -3,9 +3,16 @@
   position: fixed;
   /* 父元素没有width，子元素的margin:0 auto;失效 */
   width: 100%;
+  height: 0;
   background-color: transparent;
   top: 0;
   z-index: 1;
+  transition: all 0.4s;
+}
+
+.wing_news_nav_bg_js {
+  height: 550px;
+  background-color: #fff;
 }
 
 .wing_news_nav {
@@ -29,27 +36,48 @@
   text-align: center;
 }
 
+.wing_news_nav_m>li {
+  width: 100%;
+  height: 100%;
+}
+
 .wing_news_nav_head {
+  display: block;
+  width: 100%;
+  height: 100%;
   color: #FFF;
-  height: 72px;
   font-size: 16px;
   font-weight: bold;
   line-height: 72px;
 }
 
-.wing_news_nav_m ul {
-  display: none;
+.wing_news_nav_m .wing_news_nav_content {
+  /* display: none; */
   text-align: center;
+  /* 让盒子沿Y轴缩起来 */
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+  transition: all 0.4s;
 }
 
-.wing_news_nav_m ul a {
+.wing_news_nav_m>li:hover .wing_news_nav_content {
+  transform: scaleY(1);
+}
+
+.wing_news_nav_m .wing_news_nav_content li {
   display: block;
+  width: 100%;
   height: 50px;
+}
+
+.wing_news_nav_m .wing_news_nav_content a {
+  display: block;
+  width: 100%;
+  height: 100%;
   font-size: 16px;
   font-weight: normal;
   line-height: 50px;
   color: #2b2e2e;
-  /* color: #FFF; */
 }
 
 .wing_news_nav .language {
