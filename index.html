@@ -13,7 +13,7 @@
 
 <!-- 别再误删这个id了，是给回顶按钮做的 -->
 
-<body id="top">
+<body>
     <!-- 导航栏  单独-->
     <div class="wing_news_nav_bg">
         <div class="wing_news_nav center">
@@ -136,10 +136,25 @@
     </script>
     <!-- 回顶按钮 -->
     <div class="wing_top">
-        <a href="#top"><span></span></a>
+        <a href="javascript:;"><span></span></a>
     </div>
     <script>
-
+        let wing_top = document.querySelector('.wing_top');
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset == 0) {
+                wing_top.style.bottom = '-2rem';
+            }
+            else {
+                wing_top.style.bottom = '1rem';
+            }
+        })
+        wing_top.addEventListener('click', function () {
+            window.scrollTo({//一个对象，三个参数,这是对象字面量{}的写法
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
+        })
     </script>
     <!-- 头部板块 -->
     <div class="wing_news_bg">
