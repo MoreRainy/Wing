@@ -18,6 +18,7 @@
 .wing_news_nav {
   height: 72px;
   background-color: transparent;
+  /* transition: all 0.3s ease; */
 }
 
 .wing_news_nav img {
@@ -129,6 +130,7 @@
   background-color: #fff;
   border: 1px solid #0052D9;
   border-radius: 50%;
+  z-index: 999;
 }
 
 .wing_top a {
@@ -155,7 +157,26 @@
 .wing_news_bg {
   position: relative;
   height: 720px;
-  background: url(../images/banner_3.avif) no-repeat 0 -100px;
+  background: url(../images/banner_2.avif) no-repeat 0 -100px;
+  background-size: 100% 900px;
+  overflow: hidden;
+}
+
+/* 为什么不加bgs和of会出现错误 */
+.wing_news_bg_0 {
+  background: url(../images/banner_0.jpg) no-repeat 0 -100px;
+  background-size: 100% 900px;
+  overflow: hidden;
+}
+
+.wing_news_bg_1 {
+  background: url(../images/banner_1.avif) no-repeat 0 -100px;
+  background-size: 100% 900px;
+  overflow: hidden;
+}
+
+.wing_news_bg_2 {
+  background: url(../images/banner_2.avif) no-repeat 0 -100px;
   background-size: 100% 900px;
   overflow: hidden;
 }
@@ -207,12 +228,24 @@
   margin-left: 20px;
 }
 
-.wing_news_button .wing_news_button_chose span {
+.wing_news_button .wing_news_button_chose a {
   float: right;
   width: 10px;
   height: 10px;
-  margin-right: 5px;
+  margin-right: 15px;
   background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.wing_news_button .wing_news_button_chose span[class^="wing_news_btn"] {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wing_news_button .wing_news_button_chose .wing_news_now {
+  width: 40px;
+  background-color: #0052D9;
 }
 
 /* 最新动态板块 */
@@ -240,6 +273,21 @@
   margin-top: 20px;
 }
 
+/* 交互初始化 */
+.wing_up,
+.wing_img_up {
+  transition: all 0.3s ease;
+}
+
+.wing_up:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.wing_img_up:hover {
+  transform: scale(1.1);
+}
+
 /* 文字部分初始化 */
 .wing_latestnews h4 {
   font-size: 28px;
@@ -265,10 +313,6 @@
   margin: 0 20px 20px;
 }
 
-/* .wing_latestnews a {
-  display: block;
-} */
-
 /* 对三角模块处理 */
 .wing_latestnews_container span {
   display: inline-block;
@@ -279,8 +323,6 @@
   padding-left: 20px;
   border-width: 1px 0;
   border-style: solid;
-  /* border-top: 1px solid;
-  border-bottom: 1px solid; */
   margin: 5px 0;
   line-height: 30px;
 }
@@ -435,6 +477,36 @@
   top: 0;
 }
 
+.wing_company i {
+  position: relative;
+}
+
+.wing_company i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: #FFFe;
+  transform-origin: 0 0;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.wing_box_up:hover i::after {
+  transform: scaleX(1);
+}
+
+/* 交互初始化 */
+.wing_box_up img {
+  transition: all 0.3s ease;
+}
+
+.wing_box_up:hover img {
+  transform: scale(1.1);
+}
+
 /* 文字居中 */
 .wing_company_container span {
   display: block;
@@ -474,6 +546,32 @@
 }
 
 /* 侧边导航栏 */
+/* 交互初始化 */
+.wing_text_up,
+.wing_connect_up:hover h3::after {
+  transition: all 0.3s ease;
+}
+
+.wing_text_up:hover {
+  opacity: 1;
+  transform: translateX(20px);
+}
+
+.wing_text_up:hover h2::before,
+.wing_text_up:hover p::after {
+  display: block;
+}
+
+.wing_connect_up:hover h3::after {
+  /* display: block; */
+  visibility: visible;
+  transform: translateX(20px);
+}
+
+.wing_connect_up:hover p {
+  display: block;
+}
+
 /* 用opacity为整个盒子覆阴影 
 可以连着文字一起阴影*/
 .wing_connect_container_nav a {
@@ -801,12 +899,18 @@
   margin-left: 20px;
 }
 
-.wing_join_button .wing_join_button_chose span {
+.wing_join_button .wing_join_button_chose a {
   float: right;
   width: 10px;
   height: 10px;
-  margin-right: 5px;
+  margin-right: 15px;
   background-color: #fff;
+}
+
+.wing_join_button .wing_join_button_chose a>span {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* 底部footer */

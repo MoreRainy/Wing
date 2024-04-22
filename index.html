@@ -11,7 +11,9 @@
     <!-- <script src="js/index.js"></script> -->
 </head>
 
-<body>
+<!-- 别再误删这个id了，是给回顶按钮做的 -->
+
+<body id="top">
     <!-- 导航栏  单独-->
     <div class="wing_news_nav_bg">
         <div class="wing_news_nav center">
@@ -134,13 +136,41 @@
                     <a href="#"><img class="wing_news_button_r" src="images/icon_arrow_r.png" alt="wing_news_button_r"
                             width="85px"></img></a>
                 </div>
-
                 <div class="wing_news_button_chose">
-                    <a href="#"><span></span></a><a href="#"><span></span></a><a href="#"><span></span></a>
+                    <!-- 注意此处和页面中的序号相反，因为是向右浮动 -->
+                    <a href="#"><span class="wing_news_btn_0"></span></a>
+                    <a href="#"><span class="wing_news_btn_1"></span></a>
+                    <a href="#" class="wing_news_now"><span class="wing_news_btn_2"></span></a>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        let news_bg = document.querySelector('.wing_news_bg');
+        let news_button = document.querySelectorAll('span[class^="wing_news_btn"]');
+        let news_box = document.querySelectorAll('.wing_news_button_chose a');
+        news_button[0].addEventListener('click', function () {
+            news_bg.className = 'wing_news_bg wing_news_bg_0';
+            for (let i = 0; i < news_box.length; i++) {
+                news_box[i].className = '';
+            }
+            news_box[0].className = 'wing_news_now';
+        })
+        news_button[1].addEventListener('click', function () {
+            news_bg.className = 'wing_news_bg wing_news_bg_1';
+            for (let i = 0; i < news_box.length; i++) {
+                news_box[i].className = '';
+            }
+            news_box[1].className = 'wing_news_now';
+        })
+        news_button[2].addEventListener('click', function () {
+            news_bg.className = 'wing_news_bg wing_news_bg_2';
+            for (let i = 0; i < news_box.length; i++) {
+                news_box[i].className = '';
+            }
+            news_box[2].className = 'wing_news_now';
+        })
+    </script>
     <!-- 最新动态板块 -->
     <div class="wing_latestnews_bg">
         <div class="wing_latestnews_bg_shadow"></div>
@@ -232,19 +262,19 @@
             <div class="wing_box_up">
                 <a href="#">
                     <img src="images/company_1.jpg" alt="公司简介">
-                    <span>公司简介</span>
+                    <span><i>公司简介</i></span>
                 </a>
             </div>
             <div class="wing_box_up">
                 <a href="#">
                     <img src="images/company_2.jpg" alt="企业文化">
-                    <span>企业文化</span>
+                    <span><i>企业文化</i></span>
                 </a>
             </div>
             <div class="wing_box_up">
                 <a href="#">
                     <img src="images/company_3.jpg" alt="办公地点">
-                    <span>办公地点</span>
+                    <span><i>办公地点</i></span>
                 </a>
             </div>
         </div>
@@ -384,7 +414,9 @@
                             width="85px"></img></a>
                 </div>
                 <div class="wing_join_button_chose">
-                    <a href="#"><span></span></a><a href="#"><span></span></a><a href="#"><span></span></a>
+                    <a href="#"><span></span></a>
+                    <a href="#"><span></span></a>
+                    <a href="#"><span></span></a>
                 </div>
             </div>
         </div>

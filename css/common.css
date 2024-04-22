@@ -54,62 +54,10 @@ span {
   font-size: 16px;
 }
 
-/* 交互初始化 */
-.wing_news_nav,
-.wing_up,
-.wing_img_up,
-.wing_bg_up,
-.wing_text_up,
-.wing_box_up img,
-.wing_connect_up:hover h3::after {
-  transition: all 0.3s ease;
-}
-
-.wing_up:hover {
-  transform: translateY(-5px);
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
-}
-
-.wing_img_up:hover {
-  transform: scale(1.1);
-}
-
-.wing_bg_up:hover {
-  background-size: 120%;
-}
-
-.wing_text_up:hover {
-  opacity: 1;
-  transform: translateX(20px);
-}
+/* 全局交互初始化 */
 
 .wing_text_blue:hover {
   color: blue !important;
-}
-
-
-.wing_text_up:hover h2::before,
-.wing_text_up:hover p::after {
-  display: block;
-}
-
-.wing_box_up:hover img {
-  transform: scale(1.1);
-}
-
-/* 
-.wing_box_up:hover span {
-  opacity: 1;
-} */
-
-.wing_connect_up:hover h3::after {
-  /* display: block; */
-  visibility: visible;
-  transform: translateX(20px);
-}
-
-.wing_connect_up:hover p {
-  display: block;
 }
 
 @media screen and (min-width: 900px) {
