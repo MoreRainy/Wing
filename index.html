@@ -95,27 +95,61 @@
         let head_bg = document.querySelector('.wing_news_nav_bg');
         for (let i = 0; i < head_nav.length; i++) {
             head_nav[i].addEventListener('mouseover', function () {
-                head_bg.className = 'wing_news_nav_bg wing_news_nav_bg_js';
+                head_bg.classList.add('wing_news_nav_bg_js'); //白色背景
                 head_logo.src = 'images/tencent_logo.png';
                 for (let j = 0; j < head_text.length; j++) {
                     head_text[j].style.color = 'black';
                 }
             })
             head_nav[i].addEventListener('mouseout', function () {
-                head_logo.src = 'images/tx_logo.png';
-                head_bg.className = 'wing_news_nav_bg';
-                for (let j = 0; j < head_text.length; j++) {
-                    head_text[j].style.color = '#FFF';
+                head_bg.classList.remove('wing_news_nav_bg_js');
+                if (window.pageYOffset == 0) {
+                    head_logo.src = 'images/tx_logo.png';
+                    for (let j = 0; j < head_text.length; j++) {
+                        head_text[j].style.color = '#FFF';
+                    }
                 }
             })
         }
+        let preScroll = 0;//初始化滚动位置变量
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset - preScroll > 0) {//向下滚动
+                head_bg.style.top = '-72px';
+            }
+            else {//向上滚动
+                head_bg.style.top = '0';
+                head_bg.classList.add('wing_nav_move');
+                head_logo.src = 'images/tencent_logo.png';
+                for (let j = 0; j < head_text.length; j++) {
+                    head_text[j].style.color = 'black';
+                }
+            }
+            if (window.pageYOffset == 0) {//置顶清空所有样式
+                head_bg.classList.remove('wing_nav_move');
+                head_logo.src = 'images/tx_logo.png';
+                for (let j = 0; j < head_text.length; j++) {
+                    head_text[j].style.color = '#FFF';
+                }
+            }
+            preScroll = window.pageYOffset;//记录当前位置
+        })
     </script>
     <!-- 回顶按钮 -->
     <div class="wing_top">
         <a href="#top"><span></span></a>
     </div>
+    <script>
+
+    </script>
     <!-- 头部板块 -->
     <div class="wing_news_bg">
+        <div class="wing_news_bg_box">
+            <ul>
+                <li class="wing_news_bg_0"></li>
+                <li class="wing_news_bg_1"></li>
+                <li class="wing_news_bg_2"></li>
+            </ul>
+        </div>
         <!-- 背景蒙版 -->
         <div class="wing_news_bg_shadow"></div>
         <div class="wing_news_container center">
@@ -136,40 +170,49 @@
                     <a href="#"><img class="wing_news_button_r" src="images/icon_arrow_r.png" alt="wing_news_button_r"
                             width="85px"></img></a>
                 </div>
-                <div class="wing_news_button_chose">
-                    <!-- 注意此处和页面中的序号相反，因为是向右浮动 -->
-                    <a href="#"><span class="wing_news_btn_0"></span></a>
-                    <a href="#"><span class="wing_news_btn_1"></span></a>
-                    <a href="#" class="wing_news_now"><span class="wing_news_btn_2"></span></a>
-                </div>
+                <div class="wing_news_button_chose"></div>
             </div>
         </div>
     </div>
     <script>
-        let news_bg = document.querySelector('.wing_news_bg');
-        let news_button = document.querySelectorAll('span[class^="wing_news_btn"]');
-        let news_box = document.querySelectorAll('.wing_news_button_chose a');
-        news_button[0].addEventListener('click', function () {
-            news_bg.className = 'wing_news_bg wing_news_bg_0';
-            for (let i = 0; i < news_box.length; i++) {
-                news_box[i].className = '';
-            }
-            news_box[0].className = 'wing_news_now';
-        })
-        news_button[1].addEventListener('click', function () {
-            news_bg.className = 'wing_news_bg wing_news_bg_1';
-            for (let i = 0; i < news_box.length; i++) {
-                news_box[i].className = '';
-            }
-            news_box[1].className = 'wing_news_now';
-        })
-        news_button[2].addEventListener('click', function () {
-            news_bg.className = 'wing_news_bg wing_news_bg_2';
-            for (let i = 0; i < news_box.length; i++) {
-                news_box[i].className = '';
-            }
-            news_box[2].className = 'wing_news_now';
-        })
+        let news_bg_box = document.querySelector('.wing_news_bg_box>ul');
+        let news_bg_box_num = document.querySelectorAll('.wing_news_bg_box>ul>li');
+        let news_button_box = document.querySelector('.wing_news_button_chose');
+        let new_current = 0;//目前所在的图片
+        let new_bg_width = news_bg_box.parentNode.offsetWidth;//获取背景宽度，即ul外div的宽度
+        //动态修改盒子宽度
+        // let wing_news_bg_box = document.querySelector('.wing_news_bg_box ul');
+        // let wing_news_bg_box_width = news_bg_box.length * 100% ;
+        // wing_news_bg_box.style.width = wing_news_bg_box_width;
+        // 动态生成按钮
+        for (let i = 0; i < news_bg_box_num.length; i++) {
+            let new_button = document.createElement('a');
+            new_button.setAttribute('data-index', i);
+            news_button_box.appendChild(new_button);
+        }
+        //添加点击事件
+        let news_button_a = news_button_box.querySelectorAll('a');
+        function news_bg_move(target) {
+            // console.log(target - new_current);
+            news_bg_box.style.left = -(target - new_current) * new_bg_width + 'px';
+            new_current = target;
+        }
+        for (let i = 0; i < news_button_a.length; i++) {
+            //添加span，用于给当前元素now类名，表示正在播放此图
+            let new_button_span = document.createElement('span');
+            news_button_a[i].appendChild(new_button_span);
+            news_button_a[0].className = 'wing_news_now';//初始化
+            //添加点击事件
+            news_button_a[i].addEventListener('click', function () {
+                for (let j = 0; j < news_button_a.length; j++) {
+                    for (let k = 0; k < news_button_a.length; k++) {
+                        news_button_a[k].className = '';
+                    }
+                    this.className = 'wing_news_now';
+                }
+                news_bg_move(i);
+            })
+        }
     </script>
     <!-- 最新动态板块 -->
     <div class="wing_latestnews_bg">
