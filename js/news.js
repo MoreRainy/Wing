@@ -27,35 +27,41 @@ for (let i = 0; i < news_button_a.length; i++) {
     news_button_a[0].className = 'wing_news_now';//初始化
     //添加点击事件
     news_button_a[i].addEventListener('click', function () {
-        for (let j = 0; j < news_button_a.length; j++) {
-            for (let k = 0; k < news_button_a.length; k++) {
-                news_button_a[k].className = '';
+        if (new_current * new_bg_width + news_bg_box.offsetLeft == 0) {//节流阀：判断上一次动画是否结束
+            for (let j = 0; j < news_button_a.length; j++) {
+                for (let k = 0; k < news_button_a.length; k++) {
+                    news_button_a[k].className = '';
+                }
+                this.className = 'wing_news_now';
             }
-            this.className = 'wing_news_now';
+            news_bg_move(i);
         }
-        news_bg_move(i);
     })
 }
 //箭头点击
 let news_bg_last = document.querySelector('.wing_news_last');
 let news_bg_next = document.querySelector('.wing_news_next');
 news_bg_last.addEventListener('click', function () {
-    news_button_a[new_current].className = ''
-    if (new_current - 1 < 0) {
-        news_bg_move(news_bg_box_num.length - 1);
+    if (new_current * new_bg_width + news_bg_box.offsetLeft == 0) {
+        news_button_a[new_current].className = ''
+        if (new_current - 1 < 0) {
+            news_bg_move(news_bg_box_num.length - 1);
+        }
+        else {
+            news_bg_move(new_current - 1);
+        }
+        news_button_a[new_current].className = 'wing_news_now';
     }
-    else {
-        news_bg_move(new_current - 1);
-    }
-    news_button_a[new_current].className = 'wing_news_now';
 })
 news_bg_next.addEventListener('click', function () {
-    news_button_a[new_current].className = ''
-    if (new_current + 1 > news_bg_box_num.length - 1) {
-        news_bg_move(0);
+    if (new_current * new_bg_width + news_bg_box.offsetLeft == 0) {
+        news_button_a[new_current].className = ''
+        if (new_current + 1 > news_bg_box_num.length - 1) {
+            news_bg_move(0);
+        }
+        else {
+            news_bg_move(new_current + 1);
+        }
+        news_button_a[new_current].className = 'wing_news_now';
     }
-    else {
-        news_bg_move(new_current + 1);
-    }
-    news_button_a[new_current].className = 'wing_news_now';
 })
