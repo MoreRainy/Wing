@@ -14,10 +14,10 @@ for (let i = 0; i < head_nav.length; i++) {
     })
     head_nav[i].addEventListener('mouseout', function () {
         head_bg.classList.remove('wing_news_nav_bg_js');
+        this.lastElementChild.style.transform = 'scaleY(0)';
+        this.lastElementChild.style.display = 'none';
         if (window.pageYOffset == 0) {
             head_logo.src = 'images/tx_logo.png';
-            this.lastElementChild.style.transform = 'scaleY(0)';
-            this.lastElementChild.style.display = 'none';
             for (let j = 0; j < head_text.length; j++) {
                 head_text[j].style.color = '#FFF';
             }
