@@ -87,13 +87,13 @@
   transition: all 0.4s;
 }
 
-.wing_news_nav_m>li:hover .wing_news_nav_content {
+/* .wing_news_nav_m>li:hover .wing_news_nav_content {
   transform: scaleY(1);
-}
+} */
 
 .wing_news_nav_m .wing_news_nav_content li {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
   margin: 20px 0;
   text-align: center;
@@ -101,12 +101,14 @@
 
 .wing_news_nav_m .wing_news_nav_content a {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
   font-size: 16px;
   font-weight: normal;
   line-height: 0.5rem;
   color: #2b2e2e;
+  /* 强制文字一行显示 */
+  white-space: nowrap;
 }
 
 .wing_news_nav .language {
