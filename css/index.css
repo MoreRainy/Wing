@@ -78,7 +78,7 @@
 }
 
 .wing_news_nav_m .wing_news_nav_content {
-  display: none;
+  visibility: visible;
   text-align: center;
   width: 100%;
   /* 让盒子沿Y轴缩起来 */

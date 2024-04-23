@@ -7,7 +7,7 @@ for (let i = 0; i < head_nav.length; i++) {
         head_bg.classList.add('wing_news_nav_bg_js'); //白色背景
         head_logo.src = 'images/tencent_logo.png';
         this.lastElementChild.style.transform = 'scaleY(1)';
-        this.lastElementChild.style.display = 'block';
+        this.lastElementChild.style.visibility = 'visible';
         for (let j = 0; j < head_text.length; j++) {
             head_text[j].style.color = 'black';
         }
@@ -15,7 +15,7 @@ for (let i = 0; i < head_nav.length; i++) {
     head_nav[i].addEventListener('mouseout', function () {
         head_bg.classList.remove('wing_news_nav_bg_js');
         this.lastElementChild.style.transform = 'scaleY(0)';
-        this.lastElementChild.style.display = 'none';
+        this.lastElementChild.style.visibility = 'hidden';
         if (window.pageYOffset == 0) {
             head_logo.src = 'images/tx_logo.png';
             for (let j = 0; j < head_text.length; j++) {
@@ -31,7 +31,7 @@ window.addEventListener('scroll', function () {
         // 向下滚动时，就算鼠标唤出了二级菜单，也要收回
         for (let i = 0; i < head_nav.length; i++) {
             head_nav[i].lastElementChild.style.transform = 'scaleY(0)';
-            head_nav[i].lastElementChild.style.display = 'none';
+            head_nav[i].lastElementChild.style.visibility = 'hidden';
         }
         head_bg.classList.remove('wing_news_nav_bg_js');
     }
