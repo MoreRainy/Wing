@@ -11,8 +11,6 @@
     <!-- <script src="js/index.js"></script> -->
 </head>
 
-<!-- 别再误删这个id了，是给回顶按钮做的 -->
-
 <body>
     <!-- 导航栏  单独-->
     <div class="wing_news_nav_bg">
@@ -88,74 +86,12 @@
             </ul>
         </div>
     </div>
-    <script>
-        let head_logo = document.querySelector('.wing_news_nav>img');
-        let head_text = document.querySelectorAll('.language a,.language span,.wing_news_nav_head');
-        let head_nav = document.querySelectorAll('.wing_news_nav_m>li');
-        let head_bg = document.querySelector('.wing_news_nav_bg');
-        for (let i = 0; i < head_nav.length; i++) {
-            head_nav[i].addEventListener('mouseover', function () {
-                head_bg.classList.add('wing_news_nav_bg_js'); //白色背景
-                head_logo.src = 'images/tencent_logo.png';
-                for (let j = 0; j < head_text.length; j++) {
-                    head_text[j].style.color = 'black';
-                }
-            })
-            head_nav[i].addEventListener('mouseout', function () {
-                head_bg.classList.remove('wing_news_nav_bg_js');
-                if (window.pageYOffset == 0) {
-                    head_logo.src = 'images/tx_logo.png';
-                    for (let j = 0; j < head_text.length; j++) {
-                        head_text[j].style.color = '#FFF';
-                    }
-                }
-            })
-        }
-        let preScroll = 0;//初始化滚动位置变量
-        window.addEventListener('scroll', function () {
-            if (window.pageYOffset - preScroll > 0) {//向下滚动
-                head_bg.style.top = '-72px';
-            }
-            else {//向上滚动
-                head_bg.style.top = '0';
-                head_bg.classList.add('wing_nav_move');
-                head_logo.src = 'images/tencent_logo.png';
-                for (let j = 0; j < head_text.length; j++) {
-                    head_text[j].style.color = 'black';
-                }
-            }
-            if (window.pageYOffset == 0) {//置顶清空所有样式
-                head_bg.classList.remove('wing_nav_move');
-                head_logo.src = 'images/tx_logo.png';
-                for (let j = 0; j < head_text.length; j++) {
-                    head_text[j].style.color = '#FFF';
-                }
-            }
-            preScroll = window.pageYOffset;//记录当前位置
-        })
-    </script>
+    <script src="js/nav.js"></script>
     <!-- 回顶按钮 -->
     <div class="wing_top">
         <a href="javascript:;"><span></span></a>
     </div>
-    <script>
-        let wing_top = document.querySelector('.wing_top');
-        window.addEventListener('scroll', function () {
-            if (window.pageYOffset == 0) {
-                wing_top.style.bottom = '-2rem';
-            }
-            else {
-                wing_top.style.bottom = '1rem';
-            }
-        })
-        wing_top.addEventListener('click', function () {
-            window.scrollTo({//一个对象，三个参数,这是对象字面量{}的写法
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            })
-        })
-    </script>
+    <script src="js/top_button.js"></script>
     <!-- 头部板块 -->
     <div class="wing_news_bg">
         <div class="wing_news_bg_box">
@@ -189,69 +125,7 @@
             </div>
         </div>
     </div>
-    <script>
-        let news_bg_box = document.querySelector('.wing_news_bg_box>ul');//背景图片大集合ul
-        let news_bg_box_num = document.querySelectorAll('.wing_news_bg_box>ul>li');//背景图片li
-        let news_button_box = document.querySelector('.wing_news_button_chose');//原点集合
-        let new_current = 0;//追踪目前所在的图片
-        let new_bg_width = news_bg_box.parentNode.offsetWidth;//获取背景盒子的宽度，即ul外div的宽度,注意，offset获取不带单位
-        //动态修改盒子宽度
-        let width_sum = new_bg_width * news_bg_box_num.length;//背景宽度和，即需要设置的ul宽度
-        news_bg_box.style.width = width_sum + 'px';
-        for (let k = 0; k < news_bg_box_num.length; k++) {
-            news_bg_box_num[k].style.width = new_bg_width + 'px';//每个背景的宽度
-        }
-        // 动态生成按钮
-        for (let i = 0; i < news_bg_box_num.length; i++) {
-            let new_button = document.createElement('a');
-            news_button_box.appendChild(new_button);
-        }
-        //点击事件
-        let news_button_a = news_button_box.querySelectorAll('a');//每一个小圆点
-        //位移函数
-        function news_bg_move(target) {
-            //news_bg_box.offsetLeft目前元素偏移量 target - new_current需要偏移的份数（跨越图片个数） new_bg_width每一份宽度（每个图片宽度）
-            news_bg_box.style.left = news_bg_box.offsetLeft - (target - new_current) * new_bg_width + 'px';
-            new_current = target;//修改追踪变量
-        }
-        //原点点击
-        for (let i = 0; i < news_button_a.length; i++) {
-            news_button_a[0].className = 'wing_news_now';//初始化
-            //添加点击事件
-            news_button_a[i].addEventListener('click', function () {
-                for (let j = 0; j < news_button_a.length; j++) {
-                    for (let k = 0; k < news_button_a.length; k++) {
-                        news_button_a[k].className = '';
-                    }
-                    this.className = 'wing_news_now';
-                }
-                news_bg_move(i);
-            })
-        }
-        //箭头点击
-        let news_bg_last = document.querySelector('.wing_news_last');
-        let news_bg_next = document.querySelector('.wing_news_next');
-        news_bg_last.addEventListener('click', function () {
-            news_button_a[new_current].className = ''
-            if (new_current - 1 < 0) {
-                news_bg_move(news_bg_box_num.length - 1);
-            }
-            else {
-                news_bg_move(new_current - 1);
-            }
-            news_button_a[new_current].className = 'wing_news_now';
-        })
-        news_bg_next.addEventListener('click', function () {
-            news_button_a[new_current].className = ''
-            if (new_current + 1 > news_bg_box_num.length - 1) {
-                news_bg_move(0);
-            }
-            else {
-                news_bg_move(new_current + 1);
-            }
-            news_button_a[new_current].className = 'wing_news_now';
-        })
-    </script>
+    <script src="js/news.js"></script>
     <!-- 最新动态板块 -->
     <div class="wing_latestnews_bg">
         <div class="wing_latestnews_bg_shadow"></div>
@@ -441,18 +315,7 @@
             </div>
         </div>
     </div>
-    <script>
-        let connect_nav = document.querySelectorAll('.wing_text_up');
-        let connect_content = document.querySelectorAll('div[class^="wing_connect_container_content_js"]');
-        for (let i = 0; i < connect_nav.length; i++) {
-            connect_nav[i].addEventListener('mouseover', function () {
-                for (var j = 0; j < connect_content.length; j++) {
-                    connect_content[j].style.display = 'none';
-                }
-                connect_content[i].style.display = 'block';
-            })
-        }
-    </script>
+    <script src="js/connect.js"></script>
     <!-- 连接plus -->
     <div class="wing_connectPlus_bg">
         <div class="wing_connectPlus_container center">
@@ -464,6 +327,10 @@
                         <p>每年一度于9月举行的全民公益活动，透过网上平台将大众在活动期间网上作出的捐款进行匹配。</p>
                     </div>
                 </a>
+                <div class="wing_connect_arrow">
+                    <div class="wing_connnect_arrow_last"></div>
+                    <div class="wing_connnect_arrow_next"></div>
+                </div>
             </div>
             <div class="wing_connectPlus_text">
                 <a href="#">
