@@ -2,14 +2,17 @@ let head_logo = document.querySelector('.wing_news_nav>img');
 let head_text = document.querySelectorAll('.language a,.language span,.wing_news_nav_head');
 let head_nav = document.querySelectorAll('.wing_news_nav_m>li');
 let head_bg = document.querySelector('.wing_news_nav_bg');
+let head_flag = 1; //head_flag用于判断是否满足二级菜单唤出的条件，不然鼠标放在导航栏滚动向下滚动会因为visibility不释放位置导致反复唤出二级菜单
 for (let i = 0; i < head_nav.length; i++) {
     head_nav[i].addEventListener('mouseover', function () {
-        head_bg.classList.add('wing_news_nav_bg_js'); //白色背景
-        head_logo.src = 'images/tencent_logo.png';
-        this.lastElementChild.style.transform = 'scaleY(1)';
-        this.lastElementChild.style.visibility = 'visible';
-        for (let j = 0; j < head_text.length; j++) {
-            head_text[j].style.color = 'black';
+        if (head_flag == 1) {
+            head_bg.classList.add('wing_news_nav_bg_js'); //白色背景
+            head_logo.src = 'images/tencent_logo.png';
+            this.lastElementChild.style.transform = 'scaleY(1)';
+            this.lastElementChild.style.visibility = 'visible';
+            for (let j = 0; j < head_text.length; j++) {
+                head_text[j].style.color = 'black';
+            }
         }
     })
     head_nav[i].addEventListener('mouseout', function () {
@@ -32,6 +35,7 @@ window.addEventListener('scroll', function () {
         for (let i = 0; i < head_nav.length; i++) {
             head_nav[i].lastElementChild.style.transform = 'scaleY(0)';
             head_nav[i].lastElementChild.style.visibility = 'hidden';
+            head_flag = 0;
         }
         head_bg.classList.remove('wing_news_nav_bg_js');
     }
@@ -42,6 +46,7 @@ window.addEventListener('scroll', function () {
         for (let j = 0; j < head_text.length; j++) {
             head_text[j].style.color = 'black';
         }
+        head_flag = 1;
     }
     if (window.pageYOffset == 0) {//置顶清空所有样式
         head_bg.classList.remove('wing_nav_move');
@@ -49,6 +54,7 @@ window.addEventListener('scroll', function () {
         for (let j = 0; j < head_text.length; j++) {
             head_text[j].style.color = '#FFF';
         }
+        head_flag = 1;
     }
     preScroll = window.pageYOffset;//记录当前位置
 })
