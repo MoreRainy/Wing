@@ -806,11 +806,21 @@
   z-index: 1;
 }
 
+/* 图片整体（包含文字，非文字样式） */
 .wing_connectPlus_container a[class^="wing_connectPlus_img"] {
   display: flex;
   flex-direction: column;
   justify-content: end;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
   height: 100%;
+  transition: all 0.2s ease;
+}
+
+.wing_connectPlus_current {
+  opacity: 1 !important;
 }
 
 /* 左侧文字部分 */
@@ -838,16 +848,37 @@
   color: #FFF;
 }
 
+/* 背景图片 */
+.wing_connectPlus_img_0 {
+  background: url(../images/connect_0.jpg) no-repeat;
+  background-size: cover;
+}
+
+.wing_connectPlus_img_1 {
+  background: url(../images/connect_1.jpg) no-repeat;
+  background-size: cover;
+}
+
+.wing_connectPlus_img_2 {
+  background: url(../images/connect_2.jpg) no-repeat;
+  background-size: cover;
+}
+
 /* 切换左右箭头 */
+.wing_connectPlus_img:hover .wing_connect_arrow {
+  visibility: visible;
+}
+
 .wing_connectPlus_img .wing_connect_arrow {
+  display: flex;
+  justify-content: space-between;
   position: absolute;
   bottom: 30px;
   right: 0;
-  display: flex;
-  justify-content: space-between;
   width: 28%;
+  visibility: hidden;
   padding: 0 60px;
-  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .wing_connnect_arrow_last {
@@ -901,13 +932,7 @@
   background-size: contain;
 }
 
-/* 背景图片 */
-.wing_connectPlus_img_1 {
-  background: url(../images/connect_1.jpg) no-repeat;
-  background-size: cover;
-}
-
-/* 加入jion */
+/* 加入join */
 .wing_join_bg {
   position: relative;
   height: 900px;

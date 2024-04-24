@@ -321,10 +321,22 @@
         <div class="wing_connectPlus_container center">
             <div class="wing_connectPlus_img">
                 <!-- <div class="wing_connectPlus_img_shadow"></div> -->
-                <a href="#" class="wing_connectPlus_img_1">
+                <a href="javascript:;" class="wing_connectPlus_img_0">
                     <div class="wing_connectPlus_img_shadow">
                         <h4>99公益日</h4>
                         <p>每年一度于9月举行的全民公益活动，透过网上平台将大众在活动期间网上作出的捐款进行匹配。</p>
+                    </div>
+                </a>
+                <a href="javascript:;" class="wing_connectPlus_img_1">
+                    <div class="wing_connectPlus_img_shadow">
+                        <h4>腾讯长城保护项目</h4>
+                        <p>腾讯公益慈善基金会与中国文物保护基金会共同合作，吸引公众关注和参与长城保护的文化遗产类公益项目。</p>
+                    </div>
+                </a>
+                <a href="javascript:;" class="wing_connectPlus_img_2">
+                    <div class="wing_connectPlus_img_shadow">
+                        <h4>腾讯为村</h4>
+                        <p>根据乡村使用场景定制微信公众号，形成由村、乡镇、区县、州市组成的公众号集群服务村民，打造手机上的“为村服务中心”。</p>
                     </div>
                 </a>
                 <div class="wing_connect_arrow">
@@ -340,6 +352,45 @@
             </div>
         </div>
     </div>
+    <script>
+        let connectPlus_current = 0;//记录当前图片
+        let connectPlus_img = document.querySelectorAll('a[class^="wing_connectPlus_img"]');
+        // console.log(connectPlus_img);
+        let connectPlus_last = document.querySelector('.wing_connnect_arrow_last');
+        console.log(connectPlus_last);
+        let connectPlus_next = document.querySelector('.wing_connnect_arrow_next');
+        console.log(connectPlus_next);
+        connectPlus_img[0].classList.add('wing_connectPlus_current');//默认显示第一张
+        function connectPlus_change(move) {
+            connectPlus_img[connectPlus_current].classList.remove('wing_connectPlus_current');//隐藏当前图片
+            if (move) {//下一张
+                if (connectPlus_current + 1 == connectPlus_img.length) {
+                    connectPlus_img[0].classList.add('wing_connectPlus_current');
+                    connectPlus_current = 0;
+                }
+                else {
+                    connectPlus_img[connectPlus_current + 1].classList.add('wing_connectPlus_current');
+                    connectPlus_current++;
+                }
+            }
+            else {//上一张
+                if (connectPlus_current == 0) {
+                    connectPlus_img[connectPlus_img.length - 1].classList.add('wing_connectPlus_current');
+                    connectPlus_current = connectPlus_img.length - 1;
+                }
+                else {
+                    connectPlus_img[connectPlus_current - 1].classList.add('wing_connectPlus_current');
+                    connectPlus_current--;
+                }
+            }
+        }
+        connectPlus_last.addEventListener('click', function () {
+            connectPlus_change(0);
+        });
+        connectPlus_next.addEventListener('click', function () {
+            connectPlus_change(1);
+        });
+    </script>
     <!-- 加入Join -->
     <div class="wing_join_bg">
         <div class="wing_join_bg_box">
