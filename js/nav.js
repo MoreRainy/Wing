@@ -9,14 +9,6 @@ let mouseY = 0;
 //用于修复鼠标提前放到相应的下拉菜单处，在滚轮上移且正好达到页面最顶部出现导航栏文字消失的bug
 document.addEventListener('mousemove', function (e) {
     mouseY = e.clientY;
-    if (window.pageYOffset == 0 && mouseY > 72) {//置顶清空所有样式
-        head_bg.classList.remove('wing_nav_move');
-        head_logo.src = 'images/tx_logo.png';
-        for (let j = 0; j < head_text.length; j++) {
-            head_text[j].style.color = '#FFF';
-        }
-        head_flag = 1;
-    }
 })
 for (let i = 0; i < head_nav.length; i++) {
     head_nav[i].addEventListener('mouseover', function () {
@@ -39,6 +31,14 @@ for (let i = 0; i < head_nav.length; i++) {
             for (let j = 0; j < head_text.length; j++) {
                 head_text[j].style.color = '#FFF';
             }
+        }
+        if (window.pageYOffset == 0) {//置顶清空所有样式
+            head_bg.classList.remove('wing_nav_move');
+            head_logo.src = 'images/tx_logo.png';
+            for (let j = 0; j < head_text.length; j++) {
+                head_text[j].style.color = '#FFF';
+            }
+            head_flag = 1;
         }
     })
 }
