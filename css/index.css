@@ -38,7 +38,8 @@
   float: right;
   justify-content: space-around;
   width: 55%;
-  height: 100%;
+  /* 写死height,不然无法让下面的小li由子元素控制高度 */
+  height: 72px;
   text-align: center;
 }
 
@@ -78,9 +79,12 @@
 }
 
 .wing_news_nav_m .wing_news_nav_content {
+  display: flex;
+  flex-direction: column;
   visibility: visible;
   text-align: center;
   width: 100%;
+  height: auto;
   /* 让盒子沿Y轴缩起来 */
   transform-origin: 50% 0;
   transform: scaleY(0);
@@ -95,7 +99,7 @@
   display: block;
   width: auto;
   height: auto;
-  margin: 20px 0;
+  margin: 10px 0;
   text-align: center;
 }
 
