@@ -14,6 +14,20 @@ for (let i = 0; i < news_bg_box_num.length; i++) {
     let new_button = document.createElement('a');
     news_button_box.appendChild(new_button);
 }
+//5s自动轮播
+let news_timer_stop = document.querySelector('.wing_news_container');
+let news_timer = setInterval(function () {
+    news_bg_next.click();
+}, 5000)
+news_timer_stop.addEventListener('mouseover', function () {
+    clearInterval(news_timer);
+    news_timer = null;
+})
+news_timer_stop.addEventListener('mouseout', function () {
+    news_timer = setInterval(function () {
+        news_bg_next.click();
+    }, 5000)
+})
 //点击事件
 let news_button_a = news_button_box.querySelectorAll('a');//每一个小圆点
 //位移函数

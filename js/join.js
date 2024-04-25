@@ -14,6 +14,20 @@ for (let i = 0; i < join_bg_box_num.length; i++) {
     let join_button = document.createElement('a');
     join_button_box.appendChild(join_button);
 }
+//5s自动轮播
+let join_timer_stop = document.querySelector('.wing_join_container');
+let join_timer = setInterval(function () {
+    join_bg_next.click();
+}, 5000)
+join_timer_stop.addEventListener('mouseover', function () {
+    clearInterval(join_timer);
+    join_timer = null;
+})
+join_timer_stop.addEventListener('mouseout', function () {
+    join_timer = setInterval(function () {
+        join_bg_next.click();
+    }, 5000)
+})
 //点击事件
 let join_button_a = join_button_box.querySelectorAll('a');//每一个小圆点
 //位移函数
