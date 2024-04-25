@@ -23,6 +23,7 @@
 .wing_news_nav {
   height: 100%;
   background-color: transparent;
+  text-align: center;
   /* transition: all 0.3s ease; */
 }
 
@@ -33,6 +34,13 @@
   margin: 25px 0;
 }
 
+@media screen and (max-width: 750px) {
+  .wing_news_nav img {
+    float: none;
+
+  }
+}
+
 .wing_news_nav_m {
   display: flex;
   float: right;
@@ -41,6 +49,18 @@
   /* 写死height,不然无法让下面的小li由子元素控制高度 */
   height: 72px;
   text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  .wing_news_nav_m {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .wing_news_nav_m {
+    display: none;
+  }
 }
 
 .wing_news_nav_m>li {
@@ -116,9 +136,16 @@
 }
 
 .wing_news_nav .language {
+  display: block;
   float: right;
   width: 18%;
-  margin-left: 30px;
+  /* margin-left: 30px; */
+}
+
+@media screen and (max-width: 750px) {
+  .wing_news_nav .language {
+    display: none;
+  }
 }
 
 .wing_news_nav .language a,
@@ -126,7 +153,7 @@
   float: right;
   height: 72px;
   margin: 0 5px;
-  font-size: 16px;
+  font-size: 0.3rem;
   height: 72px;
   color: #FFF;
   line-height: 72px;
@@ -237,7 +264,7 @@
 /* 文字部分 */
 .wing_news_text h2 {
   color: #FFF;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 400;
   margin-bottom: 10px;
 }
