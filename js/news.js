@@ -28,6 +28,14 @@ news_timer_stop.addEventListener('mouseout', function () {
         news_bg_next.click();
     }, 5000)
 })
+//由于在缩放因为自动轮播导致宽度不断变化而出现的背景图偏移问题，所以在视口调整的时候禁用自动轮播
+window.addEventListener('resize', function () {
+    clearInterval(news_timer);
+    news_timer = null;
+    news_timer = setInterval(function () {
+        news_bg_next.click();
+    }, 5000)
+})
 //点击事件
 let news_button_a = news_button_box.querySelectorAll('a');//每一个小圆点
 //位移函数
