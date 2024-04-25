@@ -367,6 +367,22 @@
   }
 }
 
+@media screen and (max-width:750px) {
+  .wing_latestnews_l_container {
+    flex-direction: column;
+  }
+
+  .wing_latestnews_l_2,
+  .wing_latestnews_l_3 {
+    width: 100%;
+  }
+
+  .wing_latestnews_l_4,
+  .wing_latestnews_l_2 {
+    margin-bottom: 20px;
+  }
+}
+
 /* 交互初始化 */
 .wing_up,
 .wing_img_up {
