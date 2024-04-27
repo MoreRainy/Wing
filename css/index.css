@@ -977,17 +977,38 @@
 
 /* 连接plus */
 .wing_connectPlus_bg {
+  width: 100%;
   height: 800px;
   background-color: #fff;
   padding: 100px 0;
 }
 
+@media screen and (max-width: 1200px) {
+  .wing_connectPlus_bg {
+    height: auto;
+    aspect-ratio: 1.5;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .wing_connectPlus_bg {
+    height: auto;
+    aspect-ratio: 0.6;
+  }
+}
 
 .wing_connectPlus_container {
   display: flex;
   position: relative;
   justify-content: space-between;
+  flex-direction: row;
   height: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .wing_connectPlus_container {
+    flex-direction: column-reverse;
+  }
 }
 
 /* 左侧 */
@@ -995,12 +1016,20 @@
 .wing_connectPlus_container .wing_connectPlus_img {
   position: relative;
   width: 50%;
-  height: 600px;
+  height: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .wing_connectPlus_container .wing_connectPlus_img {
+    width: 100%;
+    height: 75%;
+  }
 }
 
 /* 切三角 */
 .wing_connectPlus_img::after {
   content: "";
+  display: block;
   position: absolute;
   top: 0;
   right: 0;
@@ -1009,6 +1038,12 @@
   background: url(../images/cut.png) no-repeat;
   background-size: 100% 100%;
   z-index: 1;
+}
+
+@media screen and (max-width:750px) {
+  .wing_connectPlus_img::after {
+    display: none;
+  }
 }
 
 /* 图片整体（包含文字，非文字样式） */
@@ -1080,7 +1115,8 @@
   position: absolute;
   bottom: 30px;
   right: 0;
-  width: 28%;
+  /* 慎用百分比，会导致箭头挤在一起 */
+  width: 180px;
   visibility: hidden;
   padding: 0 60px;
   cursor: pointer;
@@ -1106,8 +1142,16 @@
 .wing_connectPlus_text {
   display: flex;
   width: 45%;
+  height: 100%;
   /* justify-content: center; */
   align-items: center;
+}
+
+@media screen and (max-width: 750px) {
+  .wing_connectPlus_text {
+    width: 100%;
+    height: 20%;
+  }
 }
 
 .wing_connectPlus_text h3 {
@@ -1135,6 +1179,23 @@
   height: 60px;
   background: url(../images/icon_arrow_r_dark.png) no-repeat 0 30px;
   background-size: contain;
+}
+
+@media screen and (max-width: 750px) {
+  .wing_connectPlus_text h3 {
+    font-size: 24px;
+  }
+
+  .wing_connectPlus_text p {
+    font-size: 18px;
+  }
+
+  .wing_connectPlus_text p::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-position: 0px 0px;
+  }
 }
 
 /* 加入join */
