@@ -38,38 +38,44 @@ function join_bg_move(target) {
 }
 //原点点击
 for (let i = 0; i < join_button_a.length; i++) {
-    join_button_a[0].className = 'wing_join_now';//初始化
-    //添加点击事件
-    join_button_a[i].addEventListener('click', function () {
-        for (let j = 0; j < join_button_a.length; j++) {
-            for (let k = 0; k < join_button_a.length; k++) {
-                join_button_a[k].className = '';
+    if (join_current * join_bg_width + join_bg_box.offsetLeft == 0) {
+        join_button_a[0].className = 'wing_join_now';//初始化
+        //添加点击事件
+        join_button_a[i].addEventListener('click', function () {
+            for (let j = 0; j < join_button_a.length; j++) {
+                for (let k = 0; k < join_button_a.length; k++) {
+                    join_button_a[k].className = '';
+                }
+                this.className = 'wing_join_now';
             }
-            this.className = 'wing_join_now';
-        }
-        join_bg_move(i);
-    })
+            join_bg_move(i);
+        })
+    }
 }
 //箭头点击
 let join_bg_last = document.querySelector('.wing_join_last');
 let join_bg_next = document.querySelector('.wing_join_next');
 join_bg_last.addEventListener('click', function () {
-    join_button_a[join_current].className = ''
-    if (join_current - 1 < 0) {
-        join_bg_move(join_bg_box_num.length - 1);
+    if (join_current * join_bg_width + join_bg_box.offsetLeft == 0) {
+        join_button_a[join_current].className = ''
+        if (join_current - 1 < 0) {
+            join_bg_move(join_bg_box_num.length - 1);
+        }
+        else {
+            join_bg_move(join_current - 1);
+        }
+        join_button_a[join_current].className = 'wing_join_now';
     }
-    else {
-        join_bg_move(join_current - 1);
-    }
-    join_button_a[join_current].className = 'wing_join_now';
 })
 join_bg_next.addEventListener('click', function () {
-    join_button_a[join_current].className = ''
-    if (join_current + 1 > join_bg_box_num.length - 1) {
-        join_bg_move(0);
+    if (join_current * join_bg_width + join_bg_box.offsetLeft == 0) {
+        join_button_a[join_current].className = ''
+        if (join_current + 1 > join_bg_box_num.length - 1) {
+            join_bg_move(0);
+        }
+        else {
+            join_bg_move(join_current + 1);
+        }
+        join_button_a[join_current].className = 'wing_join_now';
     }
-    else {
-        join_bg_move(join_current + 1);
-    }
-    join_button_a[join_current].className = 'wing_join_now';
 })
