@@ -81,16 +81,19 @@ window.addEventListener('scroll', function () {
     preScroll = window.pageYOffset;//记录当前位置
 })
 // 侧边栏
+//拉出按钮应在顶部nav上，但侧边栏拉出时不应该随顶部nav一起收回，所以有绝对定位和固定定位的切换
 nav_side_btn.addEventListener('click', function () {
     if (nav_side_condition) {
         nav_side.style.left = '-240px';
         nav_side_condition = 0;
+        nav_side_btn.style.position = 'absolute';
         nav_side_btn.style.color = '#FFF';
         nav_side_btn.innerHTML = '';
     }
     else {
         nav_side.style.left = '0'
         nav_side_condition = 1;
+        nav_side_btn.style.position = 'fixed';
         nav_side_btn.style.color = '#000';
         nav_side_btn.innerHTML = '';
     }
