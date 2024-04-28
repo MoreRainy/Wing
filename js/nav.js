@@ -87,7 +87,10 @@ nav_side_btn.addEventListener('click', function () {
         nav_side.style.left = '-240px';
         nav_side_condition = 0;
         nav_side_btn.style.position = 'absolute';
-        nav_side_btn.style.color = '#FFF';
+        // 只有在透明导航栏时才需要变色为白色
+        if (preScroll == 0) {
+            nav_side_btn.style.color = '#FFF';
+        }
         nav_side_btn.innerHTML = '';
     }
     else {
