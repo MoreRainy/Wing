@@ -45,7 +45,6 @@ window.addEventListener('resize', function () {
     // 要先去掉left的动画，不然会因为0.3s的过渡动画不同步
     news_bg_box.style.transition = 'all 0s ease';
     news_bg_box.style.left = bg_position + 'px';
-    console.log(news_bg_box.style.left, bg_position);
     //恢复动画
     news_bg_box.style.transition = 'all 0.3s ease';
     //恢复定时器

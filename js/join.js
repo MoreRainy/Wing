@@ -45,7 +45,6 @@ window.addEventListener('resize', function () {
     // 要先去掉left的动画，不然会因为0.3s的过渡动画不同步
     join_bg_box.style.transition = 'all 0s ease';
     join_bg_box.style.left = join_position + 'px';
-    console.log(join_bg_box.style.left, join_position);
     //恢复动画
     join_bg_box.style.transition = 'all 0.3s ease';
     //恢复定时器

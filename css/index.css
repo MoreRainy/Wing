@@ -1264,6 +1264,21 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .wing_connectPlus_text h3 {
+    font-size: 18px;
+  }
+
+  .wing_connectPlus_text p {
+    font-size: 12px;
+  }
+
+  .wing_connectPlus_text p::after {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 /* 加入join */
 .wing_join_bg {
   display: flex;
@@ -1348,6 +1363,12 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .wing_join_container {
+    padding: 5% 3% 0;
+  }
+}
+
 .wing_join_container_top {
   display: flex;
   justify-content: space-between;
@@ -1358,7 +1379,6 @@
 .wing_join_container_top_l {
   display: flex;
   flex-direction: column;
-
 }
 
 /* 文字部分 */
@@ -1427,6 +1447,16 @@
   background-size: contain;
 }
 
+@media screen and (max-width: 600px) {
+  .wing_join_top h2 {
+    font-size: 18px;
+  }
+
+  .wing_join_top h5 {
+    font-size: 12px;
+  }
+}
+
 /* 轮播图按钮 */
 .wing_join_button {
   display: flex;
@@ -1435,14 +1465,29 @@
   height: 85px;
 }
 
+@media screen and (max-width:600px) {
+  .wing_join_button {
+    height: 50px;
+  }
+}
+
+.wing_join_last,
+.wing_join_next {
+  height: 50px;
+}
+
 .wing_join_button .wing_join_button_l {
+  display: inline-block;
   transform: rotate(180deg);
   margin-left: 20px;
   width: 50px;
+  height: 100%;
 }
 
 .wing_join_button .wing_join_button_r {
+  display: inline-block;
   width: 50px;
+  height: 100%;
 }
 
 .wing_join_button .wing_join_button_chose a {
@@ -1517,6 +1562,24 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .wing_footer_focus {
+    padding: 20px 0;
+    height: 80px;
+  }
+
+  .wing_footer_focus dt,
+  .wing_footer_focus dd {
+    margin-right: 20px;
+    width: 20px;
+    height: 40px;
+  }
+
+  .wing_footer_focus dt {
+    width: 100px;
+  }
+}
+
 .wing_footer_second {
   display: flex;
   flex-direction: row;
@@ -1531,7 +1594,7 @@
 .wing_footer_arrow span {
   display: none;
   position: absolute;
-  top: 20px;
+  top: 5px;
   right: 10px;
   width: 10px;
   height: 10px;
