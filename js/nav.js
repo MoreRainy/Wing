@@ -5,6 +5,11 @@ let head_bg = document.querySelector('.wing_news_nav_bg');
 let head_flag = 1; //head_flag用于判断是否满足二级菜单唤出的条件，不然鼠标放在导航栏滚动向下滚动会因为visibility不释放位置导致反复唤出二级菜单
 // 实时获取鼠标位置
 let mouseY = 0;
+//侧边栏变量
+let nav_side_btn = document.querySelector('.wing_nav_btnSmall');
+let nav_side = document.querySelector('.wing_nav_fitSmall');
+// 记录侧边栏状态，0为收起，1为拉出
+let nav_side_condition = 0;
 // 该监听事件即使物理鼠标没有移动，但页面滚动依然能监听
 //用于修复鼠标提前放到相应的下拉菜单处，在滚轮上移且正好达到页面最顶部出现导航栏文字消失的bug
 document.addEventListener('mousemove', function (e) {
@@ -61,6 +66,7 @@ window.addEventListener('scroll', function () {
         for (let j = 0; j < head_text.length; j++) {
             head_text[j].style.color = 'black';
         }
+        nav_side_btn.style.color = '#000';
         head_flag = 1;
     }
     if (window.pageYOffset == 0 && mouseY > 72) {//置顶清空所有样式
@@ -69,15 +75,12 @@ window.addEventListener('scroll', function () {
         for (let j = 0; j < head_text.length; j++) {
             head_text[j].style.color = '#FFF';
         }
+        nav_side_btn.style.color = '#FFF';
         head_flag = 1;
     }
     preScroll = window.pageYOffset;//记录当前位置
 })
 // 侧边栏
-let nav_side_btn = document.querySelector('.wing_nav_btnSmall');
-let nav_side = document.querySelector('.wing_nav_fitSmall');
-// 记录侧边栏状态，0为收起，1为拉出
-let nav_side_condition = 0;
 nav_side_btn.addEventListener('click', function () {
     if (nav_side_condition) {
         nav_side.style.left = '-240px';
