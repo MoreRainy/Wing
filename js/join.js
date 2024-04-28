@@ -28,6 +28,31 @@ join_timer_stop.addEventListener('mouseout', function () {
         join_bg_next.click();
     }, 5000)
 })
+//由于在缩放因为自动轮播导致宽度不断变化而出现的背景图偏移问题，所以在视口调整的时候禁用自动轮播
+//缩放需要实时改变背景宽度
+let join_position = -join_current * join_bg_width;
+window.addEventListener('resize', function () {
+    clearInterval(join_timer);
+    join_timer = null;
+    join_bg_width = join_bg_box.parentNode.offsetWidth;
+    join_sum = join_bg_width * join_bg_box_num.length;
+    join_bg_box.style.width = join_sum + 'px';
+    for (let k = 0; k < join_bg_box_num.length; k++) {
+        join_bg_box_num[k].style.width = join_bg_width + 'px';//每个背景的宽度
+    }
+    //还需要改变当前ul的定位
+    bg_position = -join_current * join_bg_width;
+    // 要先去掉left的动画，不然会因为0.3s的过渡动画不同步
+    join_bg_box.style.transition = 'all 0s ease';
+    join_bg_box.style.left = join_position + 'px';
+    console.log(join_bg_box.style.left, join_position);
+    //恢复动画
+    join_bg_box.style.transition = 'all 0.3s ease';
+    //恢复定时器
+    join_timer = setInterval(function () {
+        join_bg_next.click();
+    }, 5000);
+})
 //点击事件
 let join_button_a = join_button_box.querySelectorAll('a');//每一个小圆点
 //位移函数

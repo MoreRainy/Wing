@@ -260,6 +260,7 @@
 
 /* banner背景 */
 .wing_news_bg {
+  width: 100%;
   position: relative;
   height: 720px;
 }

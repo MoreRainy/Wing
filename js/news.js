@@ -29,12 +29,29 @@ news_timer_stop.addEventListener('mouseout', function () {
     }, 5000)
 })
 //由于在缩放因为自动轮播导致宽度不断变化而出现的背景图偏移问题，所以在视口调整的时候禁用自动轮播
+//缩放需要实时改变背景宽度
+let bg_position = -new_current * new_bg_width;
 window.addEventListener('resize', function () {
     clearInterval(news_timer);
     news_timer = null;
+    new_bg_width = news_bg_box.parentNode.offsetWidth;
+    width_sum = new_bg_width * news_bg_box_num.length;
+    news_bg_box.style.width = width_sum + 'px';
+    for (let k = 0; k < news_bg_box_num.length; k++) {
+        news_bg_box_num[k].style.width = new_bg_width + 'px';//每个背景的宽度
+    }
+    //还需要改变当前ul的定位
+    bg_position = -new_current * new_bg_width;
+    // 要先去掉left的动画，不然会因为0.3s的过渡动画不同步
+    news_bg_box.style.transition = 'all 0s ease';
+    news_bg_box.style.left = bg_position + 'px';
+    console.log(news_bg_box.style.left, bg_position);
+    //恢复动画
+    news_bg_box.style.transition = 'all 0.3s ease';
+    //恢复定时器
     news_timer = setInterval(function () {
         news_bg_next.click();
-    }, 5000)
+    }, 5000);
 })
 //点击事件
 let news_button_a = news_button_box.querySelectorAll('a');//每一个小圆点
