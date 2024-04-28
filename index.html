@@ -9,81 +9,109 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <!-- <script src="js/index.js"></script> -->
+    <style>
+        /* 字体图标 */
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?cccff6');
+            src: url('fonts/icomoon.eot?cccff6#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?cccff6') format('truetype'),
+                url('fonts/icomoon.woff?cccff6') format('woff'),
+                url('fonts/icomoon.svg?cccff6#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+    </style>
 </head>
 
 <body>
     <!-- 导航栏  单独-->
     <div class="wing_news_nav_bg">
         <div class="wing_news_nav center">
+            <span class="wing_nav_btnSmall"></span>
             <img src="images/tx_logo.png" alt="腾讯Tencent">
-            <div class="language">
-                <a href="#">EN</a><span>/</span>
-                <a href="#">繁</a><span>/</span>
-                <a href="#">简</a>
+            <div class="wing_nav_side">
+                <ul class="wing_news_nav_m">
+                    <li>
+                        <a href="#" class="wing_news_nav_head">简介</a>
+                        <ul class="wing_news_nav_content">
+                            <li><a href="#">公司简介</a></li>
+                            <li><a href="#">愿景及使命</a></li>
+                            <li><a href="#">发展历程</a></li>
+                            <li><a href="#">业务架构</a></li>
+                            <li><a href="#">管理团队</a></li>
+                            <li><a href="#">董事会成员</a></li>
+                            <li><a href="#">企业文化</a></li>
+                            <li><a href="#">办公地点</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="wing_news_nav_head">业务</a>
+                        <ul class="wing_news_nav_content">
+                            <li><a href="#">面向用户</a></li>
+                            <li><a href="#">面向企业</a></li>
+                            <li><a href="#">创新科技</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="wing_news_nav_head">员工</a>
+                        <ul class="wing_news_nav_content">
+                            <li><a href="#">人才发展</a></li>
+                            <li><a href="#">腾讯学堂</a></li>
+                            <li><a href="#">工作环境</a></li>
+                            <li><a href="#">员工活动</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="wing_news_nav_head">ESG</a>
+                        <ul class="wing_news_nav_content">
+                            <li><a href="#">环境</a></li>
+                            <li><a href="#">社会</a></li>
+                            <li><a href="#">治理</a></li>
+                            <li><a href="#">ESG评级</a></li>
+                            <li><a href="#">报告</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="wing_news_nav_head">投资者</a>
+                        <ul class="wing_news_nav_content">
+                            <li><a href="#">季度业绩及投资者新闻</a></li>
+                            <li><a href="#">公告及财务报告</a></li>
+                            <li><a href="#">业绩电话会及投资者日历</a></li>
+                            <li><a href="#">投资者工具包</a></li>
+                            <li><a href="#">证券及债券信息</a></li>
+                            <li><a href="#">环境、社会及管治</a></li>
+                            <li><a href="#">股东资讯</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="wing_news_nav_head">媒体</a>
+                        <ul class="wing_news_nav_content">
+                            <li><a href="#">企业动态</a></li>
+                            <li><a href="#">财务新闻</a></li>
+                            <li><a href="#">腾讯视角</a></li>
+                            <li><a href="#">媒体资料库</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="language">
+                    <a href="#">简</a><span>/</span><a href="#">繁</a><span>/</span><a href="#">EN</a>
+                </div>
             </div>
-            <ul class="wing_news_nav_m">
-                <li>
-                    <a href="#" class="wing_news_nav_head">简介</a>
-                    <ul class="wing_news_nav_content">
-                        <li><a href="#">公司简介</a></li>
-                        <li><a href="#">愿景及使命</a></li>
-                        <li><a href="#">发展历程</a></li>
-                        <li><a href="#">业务架构</a></li>
-                        <li><a href="#">管理团队</a></li>
-                        <li><a href="#">董事会成员</a></li>
-                        <li><a href="#">企业文化</a></li>
-                        <li><a href="#">办公地点</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="wing_news_nav_head">业务</a>
-                    <ul class="wing_news_nav_content">
-                        <li><a href="#">面向用户</a></li>
-                        <li><a href="#">面向企业</a></li>
-                        <li><a href="#">创新科技</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="wing_news_nav_head">员工</a>
-                    <ul class="wing_news_nav_content">
-                        <li><a href="#">人才发展</a></li>
-                        <li><a href="#">腾讯学堂</a></li>
-                        <li><a href="#">工作环境</a></li>
-                        <li><a href="#">员工活动</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="wing_news_nav_head">ESG</a>
-                    <ul class="wing_news_nav_content">
-                        <li><a href="#">环境</a></li>
-                        <li><a href="#">社会</a></li>
-                        <li><a href="#">治理</a></li>
-                        <li><a href="#">ESG评级</a></li>
-                        <li><a href="#">报告</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="wing_news_nav_head">投资者</a>
-                    <ul class="wing_news_nav_content">
-                        <li><a href="#">季度业绩及投资者新闻</a></li>
-                        <li><a href="#">公告及财务报告</a></li>
-                        <li><a href="#">业绩电话会及投资者日历</a></li>
-                        <li><a href="#">投资者工具包</a></li>
-                        <li><a href="#">证券及债券信息</a></li>
-                        <li><a href="#">环境、社会及管治</a></li>
-                        <li><a href="#">股东资讯</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="wing_news_nav_head">媒体</a>
-                    <ul class="wing_news_nav_content">
-                        <li><a href="#">企业动态</a></li>
-                        <li><a href="#">财务新闻</a></li>
-                        <li><a href="#">腾讯视角</a></li>
-                        <li><a href="#">媒体资料库</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="wing_nav_fitSmall">
+                <ul>
+                    <li><a href="#">简介</a></li>
+                    <li><a href="#">业务</a></li>
+                    <li><a href="#">员工</a></li>
+                    <li><a href="#">ESG</a></li>
+                    <li><a href="#">投资者</a></li>
+                    <li><a href="#">媒体</a></li>
+                </ul>
+                <div class="languageSmall">
+                    <a href="#">简</a><span>/</span><a href="#">繁</a><span>/</span><a href="#">EN</a>
+                </div>
+            </div>
         </div>
     </div>
     <script src="js/nav.js"></script>

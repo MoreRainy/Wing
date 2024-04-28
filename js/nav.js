@@ -73,3 +73,22 @@ window.addEventListener('scroll', function () {
     }
     preScroll = window.pageYOffset;//记录当前位置
 })
+// 侧边栏
+let nav_side_btn = document.querySelector('.wing_nav_btnSmall');
+let nav_side = document.querySelector('.wing_nav_fitSmall');
+// 记录侧边栏状态，0为收起，1为拉出
+let nav_side_condition = 0;
+nav_side_btn.addEventListener('click', function () {
+    if (nav_side_condition) {
+        nav_side.style.left = '-240px';
+        nav_side_condition = 0;
+        nav_side_btn.style.color = '#FFF';
+        nav_side_btn.innerHTML = '';
+    }
+    else {
+        nav_side.style.left = '0'
+        nav_side_condition = 1;
+        nav_side_btn.style.color = '#000';
+        nav_side_btn.innerHTML = '';
+    }
+})
