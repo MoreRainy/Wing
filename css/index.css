@@ -79,6 +79,9 @@
 
 
 .wing_news_nav_m>li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 16.66%;
   height: auto;
   text-align: center;
@@ -118,7 +121,7 @@
   flex-direction: column;
   visibility: visible;
   text-align: center;
-  width: 100%;
+  width: 180%;
   height: auto;
   /* 让盒子沿Y轴缩起来 */
   transform-origin: 50% 0;
@@ -147,7 +150,7 @@
   line-height: 0.5rem;
   color: #2b2e2e;
   /* 强制文字一行显示 */
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .wing_news_nav .language {
