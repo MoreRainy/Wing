@@ -59,6 +59,32 @@ function news_bg_move(target) {
     //news_bg_box.offsetLeft目前元素偏移量 target - new_current需要偏移的份数（跨越图片个数） new_bg_width每一份宽度（每个图片宽度）
     news_bg_box.style.left = news_bg_box.offsetLeft - (target - new_current) * new_bg_width + 'px';
     new_current = target;//修改追踪变量
+    new_text_change();
+}
+//文字变化
+let new_text = document.querySelector('.wing_news_text');
+function new_text_change() {
+    // new_text.style.transform = 'translateX(60px)';
+    switch (new_current) {
+        case 0:
+            new_text.firstElementChild.firstElementChild.innerHTML = '腾讯公布二零二三年全年及第四季业绩';
+            new_text.lastElementChild.firstElementChild.innerHTML = '';
+            break;
+        case 1:
+            new_text.firstElementChild.firstElementChild.innerHTML = '三步打造世界级数字经济中心';
+            new_text.lastElementChild.firstElementChild.innerHTML = '多元化、数字化产业是驱动经济增长的重要引擎。';
+            break;
+        case 2:
+            new_text.firstElementChild.firstElementChild.innerHTML = '2024年十大科技和应用趋势';
+            new_text.lastElementChild.firstElementChild.innerHTML = '腾讯研究院邀请科学家、工程师、学者和其他专家对2024年科技发展趋势作出预测。';
+            break;
+    }
+    new_text.style.animation = 'text_move 0.3s ease normal forwards';
+    // new_text.classList.add('wing_news_text_active');
+    new_text_timer = setTimeout(function () {
+        new_text.style.animation = 'none';
+        clearTimeout(new_text_timer);
+    }, 300);
 }
 //原点点击
 for (let i = 0; i < news_button_a.length; i++) {

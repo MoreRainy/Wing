@@ -328,6 +328,27 @@
 }
 
 /* 文字部分 */
+@keyframes text_move {
+  0% {
+    transform: translateX(120px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.wing_news_text {
+  visibility: visible;
+  /* transition: all 0.3s ease;
+  transform: translateX(0); */
+  animation: none;
+}
+
+/* .wing_news_text_active {
+  transform: translateX(60px);
+} */
+
 .wing_news_text h2 {
   color: #FFF;
   font-size: 0.8rem;
@@ -341,6 +362,7 @@
   font-size: 0.4rem;
   font-weight: 400;
   margin-bottom: 150px;
+  animation-delay: 0.2s;
 }
 
 /* 轮播图按钮 */
