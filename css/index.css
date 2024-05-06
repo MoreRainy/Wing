@@ -48,6 +48,12 @@
   align-self: start;
 }
 
+@media screen and (max-width: 750px) {
+  .wing_news_nav img {
+    align-self: center;
+  }
+}
+
 .wing_nav_side {
   display: flex;
   justify-content: space-around;
