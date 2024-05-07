@@ -26,6 +26,13 @@
 </head>
 
 <body>
+    <script>
+        let lan_record = 0;//记录当前语言
+        //这个是因为new板块的文字是在js中单独通过innerHTML更改的！！！，自己给自己挖坑了，作为“底层代码”直接改HTML过于麻烦
+        //所以需要以此在new.js中判断该改为什么文字，设置为全局变量，并在开头设置
+        //如果没有new这个问题，就可以在language.js中统一更改
+        let new_current = 0;//追踪目前所在的图片
+    </script>
     <!-- 导航栏  单独-->
     <div class="wing_news_nav_bg">
         <div class="wing_news_nav center">
@@ -96,7 +103,7 @@
                     </li>
                 </ul>
                 <div class="language">
-                    <a href="#">简</a><span>/</span><a href="#">繁</a><span>/</span><a href="#">EN</a>
+                    <a href="#">简</a><span>/</span><a href="#">EN</a>
                 </div>
             </div>
             <div class="wing_nav_fitSmall">
@@ -109,7 +116,7 @@
                     <li><a href="#">媒体</a></li>
                 </ul>
                 <div class="languageSmall">
-                    <a href="#">简</a><span>/</span><a href="#">繁</a><span>/</span><a href="#">EN</a>
+                    <a href="#">简</a><span>/</span><a href="#">EN</a>
                 </div>
             </div>
         </div>
@@ -209,10 +216,10 @@
                         <div class="wing_latestnews_r_1_img"><a href="#"><img src="images/latest_r_1.cover"
                                     alt="Weixin Pay" class="wing_img_up"></a>
                         </div>
-                        <span class="white">2024.04.12</span>
+                        <span class="white">2024.04.10</span>
                         <a href="#" style="color: #FFF !important;" class="wing_latestNews_text">
-                            <h3>腾讯进一步提升外籍来华人士移动支付体验，推出多项简化便利措施，与更多境外电子钱包合作</h3>
-                            <p>境外用户注册 WeChat 更安全便捷、用国际卡绑定微信支付更轻松简单。</p>
+                            <h3>小小银龄卡守护独居老人生活</h3>
+                            <p>腾讯SSV银发科技实验室致力于帮助老年人过上更健康和更长寿的生活。</p>
                         </a>
                     </div>
                     <div class="wing_latestnews_r_2 wing_up">
@@ -507,6 +514,7 @@
             <script src="js/footer.js"></script>
         </div>
     </div>
+    <script src="js/language.js"></script>
 </body>
 
 </html>

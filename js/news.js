@@ -1,7 +1,7 @@
 let news_bg_box = document.querySelector('.wing_news_bg_box>ul');//背景图片大集合ul
 let news_bg_box_num = document.querySelectorAll('.wing_news_bg_box>ul>li');//背景图片li
 let news_button_box = document.querySelector('.wing_news_button_chose');//原点集合
-let new_current = 0;//追踪目前所在的图片
+new_current = 0;//追踪目前所在的图片
 let new_bg_width = news_bg_box.parentNode.offsetWidth;//获取背景盒子的宽度，即ul外div的宽度,注意，offset获取不带单位
 //动态修改盒子宽度
 let width_sum = new_bg_width * news_bg_box_num.length;//背景宽度和，即需要设置的ul宽度
@@ -67,17 +67,38 @@ function new_text_change() {
     // new_text.style.transform = 'translateX(60px)';
     switch (new_current) {
         case 0:
-            new_text.firstElementChild.firstElementChild.innerHTML = '腾讯公布二零二三年全年及第四季业绩';
-            new_text.lastElementChild.firstElementChild.innerHTML = '';
-            break;
+            if (lan_record == 0) {
+                new_text.firstElementChild.firstElementChild.innerHTML = '腾讯公布二零二三年全年及第四季业绩';
+                new_text.lastElementChild.firstElementChild.innerHTML = '';
+                break;
+            }
+            if (lan_record == 1) {
+                new_text.firstElementChild.firstElementChild.innerHTML = 'Tencent Announces 2023 Annual and Fourth Quarter Results';
+                new_text.lastElementChild.firstElementChild.innerHTML = '';
+                break;
+            }
         case 1:
-            new_text.firstElementChild.firstElementChild.innerHTML = '三步打造世界级数字经济中心';
-            new_text.lastElementChild.firstElementChild.innerHTML = '多元化、数字化产业是驱动经济增长的重要引擎。';
-            break;
+            if (lan_record == 0) {
+                new_text.firstElementChild.firstElementChild.innerHTML = '三步打造世界级数字经济中心';
+                new_text.lastElementChild.firstElementChild.innerHTML = '多元化、数字化产业是驱动经济增长的重要引擎。';
+                break;
+            }
+            if (lan_record == 1) {
+                new_text.firstElementChild.firstElementChild.innerHTML = 'Three Steps to a World-Class Digital Economic Hub';
+                new_text.lastElementChild.firstElementChild.innerHTML = 'Diversified, digital-forward industries are key drivers for economic growth.';
+                break;
+            }
         case 2:
-            new_text.firstElementChild.firstElementChild.innerHTML = '2024年十大科技和应用趋势';
-            new_text.lastElementChild.firstElementChild.innerHTML = '腾讯研究院邀请科学家、工程师、学者和其他专家对2024年科技发展趋势作出预测。';
-            break;
+            if (lan_record == 0) {
+                new_text.firstElementChild.firstElementChild.innerHTML = '2024年十大科技和应用趋势';
+                new_text.lastElementChild.firstElementChild.innerHTML = '腾讯研究院邀请科学家、工程师、学者和其他专家对2024年科技发展趋势作出预测。';
+                break;
+            }
+            if (lan_record == 1) {
+                new_text.firstElementChild.firstElementChild.innerHTML = 'The Top 10 Technology Trends in 2024';
+                new_text.lastElementChild.firstElementChild.innerHTML = 'Tencent Research Institute has consulted with leading scientists and other experts to compile our annual list of top tech trends. ';
+                break;
+            }
     }
     new_text.style.animation = 'text_move 0.3s ease normal forwards';
     // new_text.classList.add('wing_news_text_active');
